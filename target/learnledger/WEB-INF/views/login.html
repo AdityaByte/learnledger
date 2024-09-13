@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" th:href="@{/resources/css/login.css}">
+</head>
+<body>
+    <div class="container">
+        <a href="#" class="back-icon" id="backButton">
+            <img th:src="@{/resources/svg/icons/Back.svg}" />
+        </a>
+        <div class="content">
+            <div class="left-content">
+                <h1>Log in</h1>
+                <form action="login" method="POST">
+                    <input name="email" type="email" placeholder="Email" aria-label="Enter your email" required>
+                    <input name="password" type="password" placeholder="Password" aria-label="Enter your password" required>
+                    <select id="typeOfUser" name="typeOfUser">
+                        <option value="user">User</option>
+                        <option value="org">Organization</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <a href="">Forgot Password?</a>
+                    <button type="submit">Log in</button>
+                </form>
+                <span>Don’t have an account? <a href="">Register Here</a></span>
+            </div>
+            <div class="right-content"></div>
+        </div>
+        <span class="span1">Copyright @ 2024 Learn Ledger | Designed By Aditya Pawar</span>
+    </div>
+
+    <!-- JavaScript at the bottom -->
+    <script th:src="@{/resources/js/login.js}"></script>
+</body>
+</html>

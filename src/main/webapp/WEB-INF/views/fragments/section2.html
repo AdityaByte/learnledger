@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <script th:src="@{/resources/js/section2.js}"></script>
+</head>
+<body>
+    <section class="section2" th:fragment="section2">
+        <h1>Learn, Build, Succeed</h1>
+
+        <div class="error-message" th:if="${error}">
+            <p th:text="${error}"></p>
+        </div>
+
+        <div class="carousel-container" th:if="${cards.size() > 0}">
+            <div class="carousel" id="carousel">
+                <div class="card" th:each="card : ${cards}">
+                    <div class="top-content">
+                        <div class="logo-img"><span th:text="${card.logoText}"></span></div>
+                        <div class="other">
+                            <strong th:text="${card.title}"></strong>
+                            <span th:text="${card.subTitle}"></span>
+                        </div>
+                    </div>
+                    <div class="middle-content"></div>
+                    <div class="bottom-content">
+                        <div>
+                            <span th:text="${card.description}"></span><br>
+                            <span th:text="${card.subDescription}"></span>
+                        </div>
+                        <div class="buttons">
+                            <button>Preview content</button>
+                            <button>Purchase</button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div th:unless="${cards.size() > 0}">
+            <p>No cards available at the moment. Please check back later.</p>
+        </div>
+
+        <!-- Pagination buttons -->
+        <div class="pagination-buttons">
+            <button id="prevBtn" onclick="prevPage()">Previous</button>
+            <button id="nextBtn" onclick="nextPage()">Next</button>
+        </div>
+    </section>
+</body>
+</html>

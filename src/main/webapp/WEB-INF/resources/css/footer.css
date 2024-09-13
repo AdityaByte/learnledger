@@ -1,0 +1,138 @@
+
+footer{
+  height: 50vh;
+  width: 100%;
+  background-color: #F2F8F7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px 5%;
+}
+
+footer .div1{
+  width: 20%;
+}
+
+footer .div1 div span{
+  font-family: "Luckiest Guy", cursive;
+  font-weight: bolder;
+  font-style: normal;
+}
+
+footer .div1 div span:first-child{
+  font-size: 40px;
+  color: #001A14;
+  background-color: #00AAA1;
+}
+
+footer .div1 div span:last-child{
+  font-size: 30px;
+  color: #06322F;
+}
+
+footer .div1 p{
+  font-size: 15px;
+  color: #222222;
+  font-weight: 400;
+}
+
+footer .div2{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px; 
+}
+
+footer .div2 strong{
+  font-size: 17px;
+  line-height: 100%;
+}
+
+footer .div2 div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+footer .div2 div a{
+  text-decoration: none;
+  color: #555555;
+}
+
+
+footer .div3{
+  width: 30%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+footer .div3 strong:first-child{
+  font-size: 17px;
+  line-height: 100%;
+}
+
+footer .div3 .div1{
+  width: 333.38px;
+  height: 37.97px;
+  background-color: #DFF1F0;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5.06px;
+}
+
+footer .div3 .div1 input{
+  width: 210.94px;
+  background-color: #DFF1F0;
+  border: none;
+  padding: 10px;
+  border-top-left-radius: 5.06px;
+  border-bottom-left-radius: 5.06px;
+}
+
+footer .div3 .div1 button{
+  width: 122.34px;
+  border: none;
+  background-color: #00AAA1;
+  color: white;
+  border-top-right-radius: 5.06px;
+  border-bottom-right-radius: 5.06px;
+}
+
+
+footer .div3 .div2{
+  display: flex;
+  flex-direction: row;
+  width: 150px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+footer .div3 .div2 .a1{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00AAA1;
+  border-radius: 5px;
+}
+
+footer .div3 .div2 .a2,.a3{
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid #777777;
+}
+
+footer .div3 .div2 a img{
+  width: 18px;
+  height: 18px;
+}

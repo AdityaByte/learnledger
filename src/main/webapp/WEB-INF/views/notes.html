@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Upload Notes</h1>
+        <form method="post" action="/learnledger/notes/savenotes" th:object="${notes}" enctype="multipart/form-data">
+            <input type="text" th:field="*{title}" name="title" placeholder="Note Title" required="true"/>
+            <input type="text" th:field="*{subTitle}" name="subTitle" placeholder="Subtitle Title" required="true"/>
+            <textarea name="description" th:field="*{description}" required="true"></textarea>
+            <input type="file" name="file" placeholder="Upload image" required="true"/>
+            <button type="submit">Upload</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,683 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Hind", sans-serif;
+  font-style: normal;
+}
+
+.parent {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden; /* Ensures no scrollbars due to absolute positioning */
+}
+
+.parent::-webkit-scrollbar{
+    width: 0;
+}
+
+.svg-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100vh;
+  background-image: url('/learnledger/resources/svg/Elipse-group.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1; /* Send it behind the nav */
+}
+
+nav {
+  position: fixed;
+  width: 80%;
+  height: 80px;
+  margin: 1% 5%;
+  border-radius: 20px;
+  background-color: rgba(23, 214, 145, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1; /* Ensure it's above the svg-bg */
+}
+
+.left-content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.right-content{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.left-content .a-group{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-content .a-group a {
+  color: #001A14;
+  text-decoration: none;
+  font-weight: normal; /* Ensure initial font weight is normal */
+  transition: color 0.3s ease-in, font-weight 0.3s ease-in, text-decoration 0.3s ease-in;
+}
+
+.left-content .a-group a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #06322F; /* Optional: Change color on hover for additional effect */
+}
+
+
+.left-content .a-group a:active{
+  color: #001A14;
+}
+
+.left-content .a-group:first-child a{
+  color: #001A14;
+  font-weight: bold;
+}
+
+
+.right-content div:first-child{
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.right-content div:first-child a {
+  color: #001A14;
+  text-decoration: none;
+  font-weight: normal; /* Ensure initial font weight is normal */
+  transition: color 0.3s ease-in, font-weight 0.3s ease-in, text-decoration 0.3s ease-in;
+}
+
+.right-content div:first-child a:hover {
+  color: #06322F; /* Change to a different color on hover */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.right-content div:first-child a:active{
+  color: #001A14;
+}
+
+.right-content div:last-child{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-content div:last-child button:nth-child(1),button:nth-child(3) {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #042b26; /* Initial text color */
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.right-content div:last-child button:nth-child(1):hover,button:nth-child(3):hover {
+  color: #001A14; /* Text color on hover */
+}
+
+
+
+.right-content div:last-child button:nth-child(2),button:nth-child(4) {
+  background-color: #06322F;
+  color: white;
+  font-size: 20px;
+  border-radius: 7px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.right-content div:last-child button:nth-child(2):hover,button:nth-child(4):hover {
+  background-color: #0a4a40; /* Slightly lighter shade for hover */
+  color: #e0f2f1; /* Light text color for contrast */
+  transform: scale(1.05); /* Slightly enlarges the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+.right-content div:last-child button:last-child:active {
+  background-color: #042b26; /* Darker shade for active state */
+  transform: scale(1); /* Resets scale on click */
+}
+
+.right-content div:last-child button:last-child:disabled {
+  background-color: #a7c4c4;
+  color: #6e8e8e;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.logo{
+  font-family: "Luckiest Guy", cursive;
+  font-weight: bolder;
+  font-style: normal;
+  width: 100%;
+}
+
+.logo span:first-child{
+  font-size: 40px;
+  color: #001A14;
+}
+
+.logo span:last-child{
+  font-size: 30px;
+  color: #06322F;
+}
+
+.left-content, .logo, .right-content {
+  /* Example styling for nav content */
+    opacity: 100%;
+}
+
+.logo {
+  text-align: center;
+}
+
+/*add .section2 if required i have removed it from here*/
+.section1,
+.section3 {
+  width: 100%; /* Ensure full width */
+  position: relative; /* Normal flow */
+  padding: 20px; /* Add padding for spacing */
+}
+
+.section1{
+  width: 50%;
+  position: relative;
+  /* top: 200px;
+  left: 100px; */
+  font-family: "Luckiest Guy", cursive;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+  margin-left: 60px;
+}
+
+.section1 strong{
+  display: flex;
+  column-gap: 10px;
+  font-size: 40px;
+  align-items: center;
+}
+
+.section1 strong span:first-child{
+  font-weight: 400;
+  color: #3ED5B1;
+}
+
+.section1 strong span:last-child{
+  font-size: 45px;
+  color: #06322F;
+}
+
+.section1 h1{
+  font-size: 70px;
+  font-weight: 300;
+  color: #06322F;
+}
+.section1 button {
+  width: 30%;
+  height: 60px;
+  font-size: 30px;
+  background-color: transparent;
+  color: #001A14;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #001A14;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section1 button:hover {
+  background-color: #001A14;
+  color: #FFFFFF;
+  transform: scale(1.05); /* Slightly enlarges the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+.section1 button:active {
+  background-color: #004d40; /* Darker shade for active state */
+  transform: scale(1); /* Resets scale on click */
+}
+
+.section1 button:disabled {
+  background-color: #e0e0e0;
+  color: #b0b0b0;
+  border: 1px solid #b0b0b0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+    .section2{
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('/learnledger/resources/svg/curve1.svg');
+        background-size: cover;   
+        padding: 0px 30px 40px 30px;
+    }
+
+    .section2 h1{
+        margin: 70px 0px 10px 100px;
+        color: white;
+        font-size: 50px;
+        font-family: "Luckiest Guy", cursive;
+        font-weight: 300;
+        font-style: normal;
+        align-self: flex-start;
+      }
+
+    .carousel-container {
+        position: relative;
+        width: calc(100% - 160px); /* Adjust width to account for the margin */
+        overflow: hidden;
+        margin: 0px auto;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        padding: 0px 40px;
+    }
+
+    .carousel {
+        display: flex;
+        justify-content: flex-start;
+        transition: transform 0.5s ease-in-out;
+        padding-left: 0;
+        height: 60vh;
+    }
+
+    .card:first-child {
+        margin-left: 0; /* Ensure the first card has no left margin */
+    }
+
+
+    .card {
+    height: 100%;
+    min-width: 300px;
+    width: 350px;
+    margin-right: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    transition: transform 0.3s ease-in-out; /* Fixed transition property */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly zooms in */
+}
+
+
+
+.card .top-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.card .top-content div:first-child{
+  padding: 10px;
+  border-radius: 100%;
+  background-color: #06322F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5vw;
+  height: 5vh;
+}
+
+.card .top-content div:first-child span{
+    font-size: 1vw;
+  color: white;
+}
+
+.card .top-content div:last-child{
+  display: flex;
+  flex-direction: column;
+}
+
+.card .top-content div:last-child strong{
+  color: #001A14;
+  font-size: 17.49px;
+  line-height: 26.2px;
+}
+
+.card .top-content div:last-child span{
+  color: #06322F;
+  font-size: 15.3px;
+  line-height: 21.9px;
+}
+
+.card .middle-content{
+  height: 45%;
+  margin: 10px 0px;
+}
+
+.card .bottom-content{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: space-between;
+}
+
+.card .bottom-content div:first-child span{
+  font-size: 15.3px;
+  line-height: 21.9px;
+  color: grey;
+}
+
+.card .bottom-content .buttons{
+  align-self: flex-end;
+}
+
+.card .bottom-content .buttons button:first-child{
+  width: 166px;
+  height: 43px;
+  border-radius: 109px;
+  background-color: transparent;
+  font-size: 15.3px;
+  line-height: 21.9px;
+  color: #06322F;
+  font-weight: 500;
+  border: 2px solid #06322F;
+  cursor: pointer;
+}
+
+.card .bottom-content .buttons button:last-child{
+  align-self: flex-end;
+  width: 118px;
+  height: 43px;
+  border-radius: 109px;
+  background-color: #06322F;
+  color: white;
+  font-size: 15.3px;
+  line-height: 21.9px;
+  border: 2px solid #06322F;
+  cursor: pointer;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-buttons button{
+    cursor: pointer;
+}
+
+.pagination-buttons button:first-child{
+  width: 80px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid #C4C4C4;
+  background-color: transparent;
+  color: #666666;
+  margin: 0px 5px;
+}
+
+.pagination-buttons button:last-child{
+  width: 90px;
+  height: 35px;
+  background-color: #00AAA1;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  margin: 0px 5px;
+}
+
+.pagination-buttons button[disabled] {
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+
+.section3{ /* Ensure it appears above any background elements */
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+}
+
+.section3 .div1{
+  height: 50vh;
+  width: 90%;
+  background-color: #F2F8F7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  border-radius: 13px;
+}
+
+.section3 .div1 h1{
+  color: #222222;
+  line-height: 120%;
+  font-size: 40px;
+  font-weight: 600;
+}
+.section3 .div1 button {
+  width: 337.49px;
+  height: 66.93px;
+  border-radius: 8.54px;
+  background-color: transparent;
+  border: 1.42px solid #00AAA1;
+  color: #00AAA1;
+  font-size: 24.21px;
+  line-height: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section3 .div1 button:hover {
+  background-color: #00AAA1;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section3 .div1 button:active {
+  transform: scale(0.95);
+}
+
+
+.section3 .div2{
+  background-color: transparent;
+  width: 90%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+
+.section3 .div2 .left-div{
+  height: 252px;
+  width: 582px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.section3 .div2 .left-div .div1{
+  height: 209px;
+  width: 100%;
+  display: flex;
+  row-gap: 5px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: white;
+  border: 0.79px solid #C4C4C4;
+}
+
+.section3 .div2 .left-div .div1 .s1{
+  font-size: 18.96px;
+  line-height: 120%;
+  color: #001A14;
+  font-weight: 900;
+}
+
+.section3 .div2 .left-div .div1 .s2{
+  font-size: 15.64px;
+  line-height: 140%;
+  color: #222222;
+  font-weight: 400;
+}
+
+.section3 .div2 .left-div .div1 .lc{
+  display: flex;
+  flex-direction: row;
+  column-gap: 7px;
+}
+
+.section3 .div2 .left-div .div1 .lc .img{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #666666;
+}
+
+.section3 .div2 .left-div .div1 .lc .other{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center;
+}
+
+.section3 .div2 .left-div .div1 .lc .other span:first-child{
+  color: #222222;
+  font-size: 16.64px;
+  line-height: 140%;
+  font-weight: 600;
+}
+
+.section3 .div2 .left-div .div1 .lc .other span:last-child{
+  color: #666666;
+  font-size: 15.64px;
+  line-height: 140%;
+  font-weight: 400;
+}
+
+
+
+.section3 .div2 .left-div .bottom-slider{
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.section3 .div2 .left-div .bottom-slider .prev{
+  width: 80px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid #C4C4C4;
+  background-color: transparent;
+  color: #666666;
+}
+
+.section3 .div2 .left-div .bottom-slider .next{
+  width: 90px;
+  height: 35px;
+  background-color: #00AAA1;
+  color: white;
+  border-radius: 4px;
+  border: none;
+}
+
+.section3 .div2 .left-div .bottom-slider .pagination button{
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid #C4C4C4;
+  background-color: transparent;
+  color: #666666;
+}
+
+.section3 .div2 .right-div{
+  height: 209px;
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-left: 40px;
+  padding: 0px;
+}
+
+.section3 .div2 .right-div h1{
+  font-size: 30.68px;
+  line-height: 140%;
+  color: #222222;
+}
+
+.section3 .div2 .right-div .btns{
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.section3 .div2 .right-div .btns button {
+  padding: 8px 15px;
+  font-size: 15px;
+  color: #666666;
+  border: 0.78px solid #666666;
+  background: transparent;
+  border-radius: 7px;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.section3 .div2 .right-div .btns button:hover {
+  background: #00AAA1; /* Change the background color on hover */
+  color: #ffffff; /* Change text color on hover */
+  border-color: #00AAA1; /* Optional: Change border color on hover if different */
+}

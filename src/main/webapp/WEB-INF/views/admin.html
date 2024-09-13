@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Admin page</h1>
+        
+        <h2>Add Cards to the index page</h2>
+        <form th:action="@{/admin/saveCard}" th:object="${card}" method="post"> 
+            <input type="text" id="logoText" th:field="*{logoText}" placeholder="Enter Logo text"/><br>
+            <input type="text" id="title" th:field="*{title}" placeholder="Enter title"/><br>
+            <input type="text" id="logoText" th:field="*{subTitle}" placeholder="Enter sub-title"/><br>
+            <input type="text" id="logoText" th:field="*{description}" placeholder="Enter description"/><br>
+            <textarea id="subDescription" th:field="*{subDescription}" ></textarea><br>
+            <button type="submit">Save Card</button>
+        </form>
+        
+        <h2>Add Notes Card</h2>
+        <form th:action="@{/admin/saveNoteCard}" th:object="${noteCard}" method="post">
+            <input type="text" id="heading" th:field="*{noteHeading}" placeholder="Enter the note heading" /><br>
+            <input type="text" id="subHeading" th:field="*{noteSubHeading}" placeholder="Enter the note description"/><br>
+            <button type="submit">Save Note</button>
+        </form>
+        
+        <h2>Add Projects Card</h2>
+        <form th:action="@{/admin/saveProjectCard}" th:object="${projectCard}" method="post">
+            <input type="text" id="heading" th:field="*{projectHeading}" placeholder="Enter the note heading" /><br>
+            <input type="text" id="subHeading" th:field="*{projectSubHeading}" placeholder="Enter the note description"/><br>
+            <button type="submit">Save Project</button>
+        </form>
+        
+        <h2>Add Pdfs Card</h2>
+        <form th:action="@{/admin/savePdfCard}" th:object="${pdfCard}" method="post">
+            <input type="text" id="heading" th:field="*{pdfHeading}" placeholder="Enter the note heading" /><br>
+            <input type="text" id="subHeading" th:field="*{pdfSubHeading}" placeholder="Enter the note description"/><br>
+            <button type="submit">Save pdf</button>
+        </form>
+    </body>
+</html>

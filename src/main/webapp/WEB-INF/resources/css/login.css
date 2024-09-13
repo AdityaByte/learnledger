@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Hind", sans-serif;
+    font-style: normal;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    background-image: url('/learnledger/resources/svg/bg-frame.svg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .back-icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: white;
+    align-self: flex-start;
+    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 85%;
+    height: 80vh;
+    background-color: rgba(23, 214, 145, 0.4); /* 20% opacity */
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    border-radius: 43px;
+    display: flex;
+    flex-direction: c;
+}
+
+.content .left-content{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+.content .left-content h1{
+    align-self: flex-start;
+    font-size: 50.68px;
+    margin-left: 100px;
+}
+
+
+.left-content form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left-content form input{
+    width: 411.49px;
+    height: 60.51px;
+    border-radius: 6.72px;
+    border: 1.34px solid #999999;
+    background-color: transparent;
+    font-size: 20.17px;
+    padding: 0px 20px;
+    margin: 7px 0px;
+}
+
+.left-content form input:active{
+    border-color: #06322F;
+    color: #06322F;
+}
+
+
+input:focus, select:focus, button:focus {
+    outline: 2px solid #136F5F;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.4);
+}
+
+
+.left-content form select {
+    width: 455.49px;
+    height: 60.51px;
+    border-radius: 6.72px;
+    border: 1.34px solid #94D7D3;
+    background-color: #136F5F; /* Darker background for better contrast */
+    font-size: 20.17px;
+    padding: 0px 20px;
+    margin: 5px 0px;
+    color: #fff; /* White text for better visibility */
+    -webkit-appearance: none; /* Remove default arrow in webkit browsers */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    appearance: none; /* Default arrow removal */
+    background-image: url("/learnledger/resources/svg/arrow-down.svg"); /* Custom arrow icon */
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+}
+
+/* Optional: Styling for the select hover/focus states */
+.left-content form select:hover,
+.left-content form select:focus {
+    border-color: #0f5f50;
+    box-shadow: 0 0 5px rgba(19, 111, 95, 0.5);
+}
+
+/* Styling the option elements */
+.left-content form select option {
+    background-color: #136F5F; /* Matches the select background */
+    color: #fff; /* White text color */
+    padding: 10px;
+}
+
+/* Styling selected option */
+.left-content form select option:checked {
+    background-color: #0f5f50; /* Slightly darker when selected */
+    color: #fff;
+}
+
+/* Placeholder styling for first option if necessary */
+.left-content form select option:first-child {
+    color: #bbb; /* Light color for the placeholder option */
+}
+
+
+.left-content form a{
+    align-self: flex-end;
+    margin-right: 15px;
+    color: #06322F;
+    font-weight: 500;
+}
+
+.left-content form button{
+    width: 455.49px;
+    height: 60.51px;
+    margin: 10px 0px;
+    border-radius: 6.72px;
+    background-color: #136F5F;
+    color: #fff;
+    font-size: 29.66px;
+}
+
+.left-content span a{
+    color: #06322F;
+    font-weight: 500;
+}
+
+
+.content .right-content{
+    width: 45%;
+    height: 100%;
+    background-image: url("/learnledger/resources/svg/vectors/vectorbg.svg");
+    background-position: center;
+    background-size: cover;
+    border-top-right-radius: 43px;
+    border-bottom-right-radius: 43px;
+}
+
+.container .span1{
+    color: #555555;
+    font-size: 19.57px;
+    margin-top: 15px;
+}

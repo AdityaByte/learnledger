@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    font-family: "Hind", sans-serif;
+    font-style: normal;
+}
+
+.container nav{
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(23, 214, 145, 0.2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    backdrop-filter: blur(40px);
+}
+
+nav .logo{
+    font-family: "Luckiest Guy", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    width: 15%;
+}
+  
+nav .logo span:first-child{
+    font-size: 40px;
+    color: #001A14;
+}
+  
+nav .logo span:last-child{
+    font-size: 30px;
+    color: #06322F;
+}
+
+nav .search-bar{
+    display: flex;
+    align-items: center;
+    width: 32%;
+    height: 100%;
+}
+
+nav .search-bar img{
+    position: absolute;
+    margin-left: 1.6%;
+}
+
+nav .search-bar input{
+    width: 100%;
+    height: 70%;
+    border: 1.5px solid #001A14;
+    border-radius: 40px;
+    background-color: #fff;
+    padding: 0px 15%;
+    font-size: 16px;
+    color: #666666;
+}
+
+nav .btn1{
+    width: 16%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .btn1 button{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
+    background-color: transparent;
+    border: none;
+    color: #001A14;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+nav .btn2{
+    width: 8%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav .btn2 button{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
+    background-color: transparent;
+    border: none;
+    color: #001A14;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+nav .btn3{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .btn3 button{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    height: 60%;
+    background-color: #f9f9f9;
+    border: 2.18px solid #555555;
+    border-radius: 47.11px;
+    color: #001A14;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0px 5px;
+}
+
+nav .btn4{
+    width: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .btn4 button{
+    background-color: transparent;
+    height: 70%;
+    border: none;
+}
+
+nav .btn4 button img{
+    width: 80%;
+    height: 80%;
+}
+
+/* nav-bar-ends here */
+
+.container .tag-section{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 1%;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.container .tag-section span{
+    width: 10%;
+    height: 50%;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15.79px;
+    border: 0.58px solid #001A14;
+    font-size: 17.42px;
+    color: #001A14;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.container .section1{
+    width: 100%;
+    height: 30vh;
+    background-color: rgba(6, 50, 47, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container .section1 div{
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Luckiest Guy", cursive;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.container .card-section{
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(148, 215, 211, 0.2);
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .card-section strong{
+    font-size: 29.4px;
+    color: #001A14;
+    margin-left: 3%;
+    margin-top: 0.7%;
+}
+
+.card-section .cards{
+    align-self: center;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cards .card{
+    height: 100%;
+    margin: 1%;
+    width: 20%;
+    background-color: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/*.card .logo-div{
+    height: 45%;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.card .logo-div img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+    mix-blend-mode: multiply;
+}*/
+
+.card .logo-div {
+    height: 150px; /* Set a fixed height if the parent container’s height is not flexible */
+    width: 150px; /* Same width as height for a circular effect */
+    margin: 20px 0;
+    overflow: hidden; /* Ensure the image doesn’t overflow out of the container */
+    border-radius: 50%; /* Optional, if you want to make the container itself circular */
+}
+
+.card .logo-div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Optional, if you want to ensure the image is circular */
+}
+
+
+.card h4{
+    color: #249629;
+    font-size: 22.85px;
+    font-weight: 600;
+    height: 10%;
+}
+
+.card p{
+    height: 30%;
+    color: #666666;
+    font-size: 14.04px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+
+/* Container for the dropdown button */
+.btn4 {
+    position: relative;
+    display: inline-block;
+}
+
+/* Initially hide the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Align the dropdown to the right of the button */
+    top: 100%; /* Position the dropdown just below the button */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Dropdown links style */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Show the dropdown on hover */
+.btn4:hover .dropdown-content {
+    display: block;
+}
+
+/* Add a hover effect to the dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.content-div{
+    margin-top: 1%;
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(6, 50, 47, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-div h3{
+    align-self: flex-start;
+    margin: 0% 0% 1.5% 4%;
+    font-size: 25.86px;
+    font-weight: 500;
+}
+
+.content-div span{
+    width: 80%;
+    height: 20%;
+    text-align: center;
+    font-size: 21px;
+    color: #5F5F5F;
+}
+
+.content-div span strong{
+    font-size: 22.5px;
+    font-weight: 500;
+    color: #001A14;
+}  

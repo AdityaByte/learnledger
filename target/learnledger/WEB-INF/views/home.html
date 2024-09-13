@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" th:href="@{/resources/css/home.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/footer.css}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <span>LEARN</span>
+                <span>Ledger</span>
+            </div>
+            <div class="search-bar">
+                <img th:src="@{/resources/svg/icons/Magnifying glass.svg}" alt="">
+                <input type="text" placeholder="Search for Notes , Projects and more" >
+            </div>
+            <div class="btn1">
+                <button>Become a seller <img th:src="@{/resources/svg/icons/Store.svg}"/></button>
+            </div>
+            <div class="btn2">
+                <button>Cart <img th:src="@{/resources/svg/icons/Trolley.svg}" alt=""></button>
+            </div>
+            <div class="btn3">
+                <button>Login <img th:src="@{/resources/svg/icons/User.svg}" alt=""></button>
+            </div>
+            <div class="btn4">
+                <button><img th:src="@{/resources/svg/icons/More.svg}"></button>
+                <div class="dropdown-content">
+                    <a href="#">Option 1</a>
+                    <a href="#">Option 2</a>
+                    <a href="#">Option 3</a>
+                </div>
+            </div>
+        </nav>
+        <div class="tag-section">
+            <span>Java</span>
+            <span>Python</span>
+            <span>Golang</span>
+            <span>Kotlin</span>
+        </div>
+        <section class="section1">
+           <div>
+                <img th:src="@{/resources/svg/images/Notes.svg}" alt="">
+                <h3 style="color: #EF5B09;">NOTES</h3>
+           </div>
+           <div>
+                <img th:src="@{/resources/svg/images/Project.svg}" alt="">
+                <h3 style="color: #5F5F5F;">PROJECTS</h3>
+            </div>
+           <div>
+                <img th:src="@{/resources/svg/images/Pdf.svg}" alt="">
+                <h3 style="color: #C25454;">PDFS</h3>
+            </div>
+           <div>
+                <img th:src="@{/resources/svg/images/Docs.svg}" alt="">
+                <h3 style="color: #548DD1;">DOCS</h3>
+            </div> 
+        </section>
+        <div class="card-section">
+            <strong>Best of Notes</strong>
+            <div class="cards">
+                <div class="card" th:each="note : ${notes}">
+                    <div class="logo-div">
+                    <img th:if="${note.image != null and note.image.base64Image != null}" 
+                        th:src="'data:' + ${note.image.imageType} + ';base64,' + ${note.image.base64Image}" 
+                        alt="Card image"
+                        th:alt="'Image for ' + ${note.title}">
+                    </div>
+                    <h4 th:text="${note.title}"></h4>
+                    <p th:text="${note.subTitle}"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <strong>Best of Projects</strong>
+            <div class="cards">
+                <div class="card" >
+                    <div class="logo-div">
+                        <img />
+                    </div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <strong>Best of Pdfs</strong>
+            <div class="cards">
+                <div class="card" >
+                    <div class="logo-div">
+                        <img >
+                    </div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="content-div">
+            <h3>What we Offer</h3>
+            <span><strong>Expertise Across Domains:</strong> Our skilled team brings a wealth of experience across various fields, from software development to design and consulting.</span>
+            <br>
+            <span><strong>Commitment to Quality:</strong> We uphold the highest standards of quality, ensuring that every deliverable exceeds your expectations.</span>
+            <br>
+            <span><strong>Solutions:</strong> We take a personalized approach to every project, delivering solutions that are specifically crafted to meet your requirements.</span>
+        </div>
+        
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </div>
+</body>
+</html>
