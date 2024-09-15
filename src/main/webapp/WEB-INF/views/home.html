@@ -60,47 +60,57 @@
                 <h3 style="color: #548DD1;">DOCS</h3>
             </div> 
         </section>
-        <div class="card-section">
+        <!-- Section for Notes -->
+        <div th:if="${notes != null and !#lists.isEmpty(notes)}" class="card-section">
             <strong>Best of Notes</strong>
             <div class="cards">
                 <div class="card" th:each="note : ${notes}">
                     <div class="logo-div">
-                    <img th:if="${note.image != null and note.image.base64Image != null}" 
-                        th:src="'data:' + ${note.image.imageType} + ';base64,' + ${note.image.base64Image}" 
-                        alt="Card image"
-                        th:alt="'Image for ' + ${note.title}">
+                        <img th:if="${note.files[0] != null and note.files[0].base64file != null}"
+                            th:src="'data:' + ${note.files[0].fileType} + ';base64,' + ${note.files[0].base64file}"
+                            alt="Card image"
+                            th:alt="'Image for ' + ${note.title}">
                     </div>
                     <h4 th:text="${note.title}"></h4>
-                    <p th:text="${note.subTitle}"></p>
+                    <p th:text="${note.description}"></p>
                 </div>
             </div>
         </div>
 
-        <div class="card-section">
+        <!-- Section for Projects -->
+        <div th:if="${projects != null and !#lists.isEmpty(projects)}" class="card-section">
             <strong>Best of Projects</strong>
             <div class="cards">
-                <div class="card" >
+                <div class="card" th:each="project : ${projects}">
                     <div class="logo-div">
-                        <img />
+                        <img th:if="${project.files[0] != null and project.files[0].base64file != null}"
+                            th:src="'data:' + ${project.files[0].fileType} + ';base64,' + ${project.files[0].base64file}"
+                            alt="Card image"
+                            th:alt="'Image for ' + ${project.title}">
                     </div>
-                    <h4></h4>
-                    <p></p>
+                    <h4 th:text="${project.title}"></h4>
+                    <p th:text="${project.description}"></p>
                 </div>
             </div>
         </div>
 
-        <div class="card-section">
-            <strong>Best of Pdfs</strong>
+        <!-- Section for PDFs -->
+        <div th:if="${pdfs != null and !#lists.isEmpty(pdfs)}" class="card-section">
+            <strong>Best of PDFs</strong>
             <div class="cards">
-                <div class="card" >
+                <div class="card" th:each="pdf : ${pdfs}">
                     <div class="logo-div">
-                        <img >
+                        <img th:if="${pdf.files[0] != null and pdf.files[0].base64file != null}"
+                            th:src="'data:' + ${pdf.files[0].fileType} + ';base64,' + ${pdf.files[0].base64file}"
+                            alt="Card image"
+                            th:alt="'Image for ' + ${pdf.title}">
                     </div>
-                    <h4></h4>
-                    <p></p>
+                    <h4 th:text="${pdf.title}"></h4>
+                    <p th:text="${pdf.description}"></p>
                 </div>
             </div>
         </div>
+
         <div class="content-div">
             <h3>What we Offer</h3>
             <span><strong>Expertise Across Domains:</strong> Our skilled team brings a wealth of experience across various fields, from software development to design and consulting.</span>
