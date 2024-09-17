@@ -16,6 +16,24 @@ public class User{
     private String email;
     private String password;
     private LocalDate registerDate = LocalDate.now();
+    private String userType;
+    private String salt;
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
 
     public LocalDate getRegisterDate() {
         return registerDate;

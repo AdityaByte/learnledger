@@ -3,12 +3,17 @@ package com.learnledger.controller;
 import com.learnledger.model.User;
 import com.learnledger.service.UserService;
 import jakarta.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/login")
@@ -23,25 +28,36 @@ public class LoginController {
     }
     
     @PostMapping
-    public String checkDetails(HttpSession session , @RequestParam("email") String email , @RequestParam("password") String password , @RequestParam("typeOfUser") String typeOfUser){
+    @ResponseBody
+    public ResponseEntity<Map<String , String>> checkDetails(HttpSession session , @RequestBody Map<String , String> loginData){
+        System.out.println("controller is running");
+        Map<String , String> response = new HashMap<>();
         
-        if(typeOfUser.equals("user")){
+        String email = loginData.get("email");        
+        String password = loginData.get("password");
+        String typeofUser = loginData.get("typeofUser");
+        
+        System.out.println(email + " " + password + " " + typeofUser);
+        
+        if("user".equals(typeofUser)){
             try{
                 User user = service.findByEmailAndPassword(email, password);
-                System.out.println(user);
                 if(user != null){
                     session.setAttribute("user", user);
                     session.setAttribute("isUserLoggedIn", true);
-                    return "redirect:/";
+                    response.put("status", "success");
                 }
                 else{
-                    return "login";
+                    response.put("status" , "failure");
                 }
             }
             catch(Exception e){
                 e.printStackTrace();
             }
         }
-        return "login";
+        else{
+            response.put("error", "error");
+        }
+        return ResponseEntity.ok(response);
     }
 }
