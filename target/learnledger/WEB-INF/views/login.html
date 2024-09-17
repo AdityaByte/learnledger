@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
     <link rel="stylesheet" th:href="@{/resources/css/login.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,15 +15,16 @@
         <div class="content">
             <div class="left-content">
                 <h1>Log in</h1>
-                <form action="login" method="POST">
-                    <input name="email" type="email" placeholder="Email" aria-label="Enter your email" required>
-                    <input name="password" type="password" placeholder="Password" aria-label="Enter your password" required>
-                    <select id="typeOfUser" name="typeOfUser">
+                <form id="loginForm" method="POST">
+                    <input id="email" name="email" type="email" placeholder="Email" aria-label="Enter your email" required>
+                    <input id="password" name="password" type="password" placeholder="Password" aria-label="Enter your password" required>
+                    <select id="typeofUser" name="typeOfUser">
                         <option value="user">User</option>
                         <option value="org">Organization</option>
                         <option value="admin">Admin</option>
                     </select>
                     <a href="">Forgot Password?</a>
+                    <div id="message-div">Message</div>
                     <button type="submit">Log in</button>
                 </form>
                 <span>Don’t have an account? <a href="">Register Here</a></span>

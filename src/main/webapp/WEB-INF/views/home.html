@@ -61,6 +61,11 @@
             </div> 
         </section>
         <!-- Section for Notes -->
+        
+        <div th:if="${error}" id="error-message">
+            <p th:text="${error}"></p>
+        </div>
+        
         <div th:if="${notes != null and !#lists.isEmpty(notes)}" class="card-section">
             <strong>Best of Notes</strong>
             <div class="cards">

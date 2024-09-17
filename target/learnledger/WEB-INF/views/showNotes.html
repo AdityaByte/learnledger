@@ -8,7 +8,6 @@
     <body>
         <h1>Notes</h1>
         <div class="card" th:each="note : ${notes}">
-            <!-- Check if image is not null and has base64Image -->
             <img th:if="${note.image != null and note.image.base64Image != null}" 
                  th:src="'data:' + ${note.image.imageType} + ';base64,' + ${note.image.base64Image}" 
                  alt="Card image"

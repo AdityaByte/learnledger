@@ -10,7 +10,6 @@
   <link rel="stylesheet" th:href="@{/resources/css/index.css}">
   <link rel="stylesheet" th:href="@{/resources/css/footer.css}">
   <script th:src="@{/resources/js/section2.js}"></script>
-  <script th:src="@{/resources/js/index.js}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -21,7 +20,7 @@
       <header>
         <strong><span>Welcome to </span><span>LearnLedger</span></strong>
         <h1 th:text="${randomH1}"></h1>
-        <button>Get Started !</button>
+        <button onclick="getStarted()">Get Started !</button>
       </header>
     </section>
     <section th:replace="fragments/section2 :: section2"></section>
@@ -78,4 +77,5 @@
    <div th:replace="fragments/footer :: footer"></div>
   </div>
 </body>
+<script th:src="@{/resources/js/index.js}"></script>
 </html>
