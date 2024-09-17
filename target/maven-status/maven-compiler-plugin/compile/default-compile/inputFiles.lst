@@ -1,4 +1,5 @@
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\controller\DataController.java
+E:\Advanced Java\learnledger\src\main\java\com\learnledger\exception\GlobalExceptionHandler.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\model\User.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\repository\UserRepository.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\service\CardService.java
@@ -10,11 +11,14 @@ E:\Advanced Java\learnledger\src\main\java\com\learnledger\config\CacheConfig.ja
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\controller\IndexController.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\service\UserService.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\service\DataService.java
+E:\Advanced Java\learnledger\src\main\java\com\learnledger\security\SaltGenerator.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\model\DataDocument.java
+E:\Advanced Java\learnledger\src\main\java\com\learnledger\service\EmailService.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\repository\CardRepository.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\config\MongoConfig.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\exception\MongoException.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\repository\DataRepository.java
+E:\Advanced Java\learnledger\src\main\java\com\learnledger\security\PasswordEncoder.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\controller\HomeController.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\model\File.java
 E:\Advanced Java\learnledger\src\main\java\com\learnledger\controller\LoginController.java
