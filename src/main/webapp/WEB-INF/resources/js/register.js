@@ -30,7 +30,7 @@ document.getElementById('form1').addEventListener('submit', function(event) {
     if (username === "" || email === "") {
         document.getElementById('message-1').style.display = "block";
         document.getElementById('message-1').innerHTML = "Please fill out the fields";
-    } 
+    }
     else if(username.length <= 6){
         document.getElementById('message-1').style.display = "block";
         document.getElementById('message-1').innerHTML = "Username should be greater than 6 character";    
@@ -45,15 +45,24 @@ document.getElementById('form1').addEventListener('submit', function(event) {
                 if (response.status === "success") {
                     console.log(response);
                     switchContent('content2', 'content1');
-                } else {
+                }
+                else {
                     document.getElementById('message-1').style.display = "block";
                     document.getElementById('message-1').innerHTML = "Sorry!! But you can't proceed further";
                 }
             },
             error: function(xhr, status, error) {
-                document.getElementById('message-1').style.display = "block";
-                document.getElementById('message-1').innerHTML = "An error occurred while processing your request";
-                console.log("ajax error", status, error);
+                
+                if(error === "emailExists"){
+                    document.getElementById('message-1').style.display = "block";
+                    document.getElementById('message-1').innerHTML = "Email Already Exist!! try to Login";
+                    console.log("ajax error", status, error);
+                }
+                else{
+                    document.getElementById('message-1').style.display = "block";
+                    document.getElementById('message-1').innerHTML = "An error occurred while processing your request";
+                    console.log("ajax error", status, error);
+                }
             }
         });
     }
@@ -77,12 +86,17 @@ document.getElementById('form2').addEventListener('submit', function(event) {
         document.getElementById('message-2').style.display = "block";
         document.getElementById('message-2').innerHTML = "Passwords are different! Password must be ideal";
     } else {
+        document.getElementById('message-2').style.display = "block";
+        document.getElementById('message-2').innerHTML = "OTP is sent to your email";
+        document.getElementById('message-2').style.borderColor = "green";
+        document.getElementById('message-2').style.color = "green";
+
         $.ajax({
             url: 'register/handleform2',
             type: 'POST',
             data: $.param({ password: password }),
             success: function(response) {
-                
+                console.log(response);
                 if (response.status === "success") {
                     console.log(response);
                     switchContent('content3', 'content2'); // Switch to form3
@@ -115,9 +129,15 @@ document.getElementById('form3').addEventListener('submit', function(event) {
             success: function(response) {
                 if (response.status === "success") {
                     window.location.href = '/learnledger';
-                } else {
+                } 
+                else if(response.status === "otpNotMatched"){
                     document.getElementById('message-3').style.display = "block";
-                    document.getElementById('message-3').innerHTML = "Sorry!! But you can't proceed further";
+                    document.getElementById('message-3').innerHTML = "OTP not matched !! You can't proceed further";
+                }
+                else{
+                    document.getElementById('message-3').style.display = "block";
+                    document.getElementById('message-3').innerHTML = "Sorry!! Getting some error while processing your request";
+                    
                 }
             },
             error: function(xhr, status, error) {

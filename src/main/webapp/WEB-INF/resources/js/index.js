@@ -30,3 +30,7 @@ function Register(){
     url.pathname = url.pathname + "register";
     window.location.href = url.href;    
 }
+
+function getStarted(){
+    window.location.href = "/login";
+}
