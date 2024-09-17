@@ -363,3 +363,18 @@ nav .btn4 button img{
     font-weight: 500;
     color: #001A14;
 }  
+
+#error-message{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error-message p{
+    padding: 10px 20px;
+    border: 1.4px dotted red;
+    border-radius: 6px;
+    color: red;
+}

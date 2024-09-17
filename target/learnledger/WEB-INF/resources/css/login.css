@@ -173,3 +173,15 @@ input:focus, select:focus, button:focus {
     font-size: 19.57px;
     margin-top: 15px;
 }
+
+#message-div{
+    display: none;
+    background-color: #F2F8F7;
+    padding: 5px 10px;
+    margin: 8px;
+    color: red;
+    border-radius: 8px;
+    max-width: 70%;
+    border: 1px dotted red;
+    font-size: small;
+}
