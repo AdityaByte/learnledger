@@ -61,11 +61,9 @@ public class RegisterFormController {
         try {
             String email = this.user.getEmail();
             if (email != null && !email.isEmpty()) {
-                System.out.println(email);
                 emailService.generateOTP();
                 String otp = emailService.getOTP();
-                System.out.println(otp);
-                //emailService.sendMail(email, "One Time Password - Learnledger", "Hello, This is the OTP for your Login is: " + otp);
+                emailService.sendMail(email, "One Time Password - Learnledger", "Hello, This is the OTP for your Login is: " + otp);
                 session.setAttribute("sessionOtp", otp);
                 
                 Map<String, String> response = new HashMap<>();
