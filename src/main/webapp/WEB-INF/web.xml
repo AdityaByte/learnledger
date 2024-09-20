@@ -8,6 +8,11 @@
                              https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0"> <!-- Ensure you use the correct Jakarta EE version -->
 
+    <session-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+
     <!-- DispatcherServlet definition -->
     <servlet>
         <servlet-name>spring</servlet-name>
