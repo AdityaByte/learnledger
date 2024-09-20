@@ -1,8 +1,10 @@
 package com.learnledger.controller;
 
+import com.learnledger.enums.UserType;
 import com.learnledger.model.User;
 import com.learnledger.service.EmailService;
 import com.learnledger.service.UserService;
+import com.learnledger.utils.OTPGenerator;
 import jakarta.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,8 +63,9 @@ public class RegisterFormController {
         try {
             String email = this.user.getEmail();
             if (email != null && !email.isEmpty()) {
-                emailService.generateOTP();
-                String otp = emailService.getOTP();
+                OTPGenerator otpGenerator = new OTPGenerator();
+                otpGenerator.generateOtp();
+                String otp = otpGenerator.getOtp();
                 emailService.sendMail(email, "One Time Password - Learnledger", "Hello, This is the OTP for your Login is: " + otp);
                 session.setAttribute("sessionOtp", otp);
                 
@@ -89,7 +92,7 @@ public class RegisterFormController {
         
         if (otp.equals(session.getAttribute("sessionOtp"))) {
             try{
-                this.user.setUserType("user");
+                this.user.setUserType(UserType.USER);
                 userService.saveUser(user);
                 session.setAttribute("isUserLoggedIn", true);
                 session.setAttribute("user", user);

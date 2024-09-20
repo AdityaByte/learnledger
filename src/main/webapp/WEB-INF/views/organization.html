@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organization</title>
     <link rel="stylesheet" th:href="@{/resources/css/organization.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -16,36 +17,36 @@
                 <h1>Collaborate with Us</h1>
             </div>
         </div>
-        <form action="">
+        <form id="orgForm" enctype="multipart/form-data" method="POST">
             <section>
                 <span>Organization Details</span>
                 <div class="inputs">
                     <div class="form-group">
                         <label for="">Organization Name :</label>
-                        <input type="text" placeholder="OrganizationXYZ" required>
+                        <input id="orgName" type="text" placeholder="OrganizationXYZ" required>
                     </div>
                     <div class="form-group">
                         <label for="">Contact Person :</label>
-                        <input type="text" placeholder="Contact Person" required>
+                        <input id="PersonName" type="text" placeholder="Contact Person" required>
                     </div>
                     <div class="form-group">
                         <label for="">Email Address :</label>
-                        <input type="email" placeholder="email@example.com" required>
+                        <input id="orgEmail" type="email" placeholder="email@example.com" required>
                     </div>
                     <div class="form-group">
                         <label for="">Phone Number :</label>
-                        <input type="tel" placeholder="123-456-7890" required>
+                        <input id="orgPhoneNo" type="tel" placeholder="123-456-7890" required>
                     </div>
                     <div class="form-group">
                         <label for="">Website URL :</label>
-                        <input type="url" placeholder="https://example.com">
+                        <input id="websiteURL" type="url" placeholder="https://example.com">
                     </div>
                     <div class="form-group">
                         <label for="">Type of Notes :</label>
-                        <select name="typesofNotes" id="" required>
+                        <select id="typeofNotes" name="typesofNotes" id="" required>
                             <option value="Programming">Programming</option>
                             <option value="DSA">Data Structures and Algorithm</option>
-                            <option value="UI">UI / UX notes</option>
+                            <option value="UI_UX">UI / UX notes</option>
                             <option value="language">Programming Language</option>
                         </select>
                     </div>
@@ -56,7 +57,7 @@
                 <div class="inputs">
                     <div class="form-group1">
                         <label for="">Description of Offer :</label>
-                        <textarea placeholder="Description..." required></textarea>
+                        <textarea id="description" placeholder="Description..." required></textarea>
                     </div>
                     <div class="form-group2" style="width: 411.49px;">
                         <label for="">Target Audience :</label>
@@ -72,7 +73,7 @@
                     <div class="form-group11">
                         <label for="">Upload previous work sample :</label>
                         <div class="custom-file-upload">
-                            <input type="file" id="previous-work-sample" class="file-input" required onchange="displayFileName(event)">
+                            <input id="workSampleFile" type="file" id="previous-work-sample" class="file-input" required onchange="displayFileName(event)">
                             <label for="previous-work-sample" class="file-label">
                                 <span id="file-name" class="file-name">Drag or drop your file</span>
                             </label>
@@ -81,7 +82,7 @@
                     <div class="form-group11">
                         <label for="business-license">Upload Business/License Registration:</label>
                         <div class="custom-file-upload">
-                            <input type="file" id="business-license" class="file-input" required onchange="displayFileName(event)">
+                            <input id="licenseFile" type="file" id="business-license" class="file-input" required onchange="displayFileName(event)">
                             <label for="business-license" class="file-label">
                                 <span id="file-name" class="file-name">Drag or drop your file</span>
                             </label>
@@ -100,4 +101,5 @@
         </form>
     </div>
 </body>
+<script th:src="@{/resources/js/organization.js}"></script>
 </html>

@@ -7,24 +7,11 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import java.security.SecureRandom;
 import java.util.Properties;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
-    
-    private String otp;
-    
-    public void generateOTP(){
-        SecureRandom random = new SecureRandom();
-        int otp = 100000 + random.nextInt(900000);
-        this.otp = String.valueOf(otp);
-    }
-    
-    public String getOTP(){
-        return this.otp;
-    }
     
     public Boolean sendMail(String to , String subject , String body){
         boolean flag = false;

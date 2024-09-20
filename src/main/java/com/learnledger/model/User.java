@@ -1,7 +1,7 @@
 package com.learnledger.model;
 
+import com.learnledger.enums.UserType;
 import java.time.LocalDate;
-import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,7 +16,7 @@ public class User{
     private String email;
     private String password;
     private LocalDate registerDate = LocalDate.now();
-    private String userType;
+    private UserType userType;
     private String salt;
 
     public String getSalt() {
@@ -27,11 +27,11 @@ public class User{
         this.salt = salt;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 
@@ -79,7 +79,5 @@ public class User{
     public String toString() {
         return "User{" + "id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + '}';
     }
-    
-    
-    
+  
 }
