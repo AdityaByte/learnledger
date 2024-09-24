@@ -23,27 +23,27 @@
                 <div class="inputs">
                     <div class="form-group">
                         <label for="">Organization Name :</label>
-                        <input id="orgName" type="text" placeholder="OrganizationXYZ" required>
+                        <input name="orgName" id="orgName" type="text" placeholder="OrganizationXYZ" required>
                     </div>
                     <div class="form-group">
                         <label for="">Contact Person :</label>
-                        <input id="PersonName" type="text" placeholder="Contact Person" required>
+                        <input name="personName" id="personName" type="text" placeholder="Contact Person" required>
                     </div>
                     <div class="form-group">
                         <label for="">Email Address :</label>
-                        <input id="orgEmail" type="email" placeholder="email@example.com" required>
+                        <input name="orgEmail" id="orgEmail" type="email" placeholder="email@example.com" required>
                     </div>
                     <div class="form-group">
                         <label for="">Phone Number :</label>
-                        <input id="orgPhoneNo" type="tel" placeholder="123-456-7890" required>
+                        <input name="orgPhoneNo" id="orgPhoneNo" type="tel" placeholder="123-456-7890" required>
                     </div>
                     <div class="form-group">
                         <label for="">Website URL :</label>
-                        <input id="websiteURL" type="url" placeholder="https://example.com">
+                        <input name="websiteURL" id="websiteURL" type="url" placeholder="https://example.com">
                     </div>
                     <div class="form-group">
                         <label for="">Type of Notes :</label>
-                        <select id="typeofNotes" name="typesofNotes" id="" required>
+                        <select name="typeofNotes" id="typeofNotes" required>
                             <option value="Programming">Programming</option>
                             <option value="DSA">Data Structures and Algorithm</option>
                             <option value="UI_UX">UI / UX notes</option>
@@ -57,7 +57,7 @@
                 <div class="inputs">
                     <div class="form-group1">
                         <label for="">Description of Offer :</label>
-                        <textarea id="description" placeholder="Description..." required></textarea>
+                        <textarea name="description" id="description" placeholder="Description..." required></textarea>
                     </div>
                     <div class="form-group2" style="width: 411.49px;">
                         <label for="">Target Audience :</label>
@@ -73,25 +73,25 @@
                     <div class="form-group11">
                         <label for="">Upload previous work sample :</label>
                         <div class="custom-file-upload">
-                            <input id="workSampleFile" type="file" id="previous-work-sample" class="file-input" required onchange="displayFileName(event)">
+                            <input name="workSampleFile" id="workSampleFile" type="file" class="file-input" required onchange="displayFileName1(event)">
                             <label for="previous-work-sample" class="file-label">
-                                <span id="file-name" class="file-name">Drag or drop your file</span>
+                                <span id="file-name1" class="file-name">Drag or drop your file</span>
                             </label>
                         </div>
                     </div>
                     <div class="form-group11">
                         <label for="business-license">Upload Business/License Registration:</label>
                         <div class="custom-file-upload">
-                            <input id="licenseFile" type="file" id="business-license" class="file-input" required onchange="displayFileName(event)">
+                            <input name="licenseFile" id="licenseFile" type="file" class="file-input" required onchange="displayFileName2(event)">
                             <label for="business-license" class="file-label">
-                                <span id="file-name" class="file-name">Drag or drop your file</span>
+                                <span id="file-name2" class="file-name">Drag or drop your file</span>
                             </label>
                         </div>
                     </div>
                 </div>
             </section>
             <section>
-                <input type="checkbox" value="agreeInput" style="transform: scale(1.5);" required>
+                <input name="agreeInput" type="checkbox" value="checked" style="transform: scale(1.5);" required>
                 <p style="color: #06322F; font-weight: 500;">By submitting this form, I confirm that I have read and agree to the <a href="" style="color: #001A14; font-weight: 600;">Terms and Conditions</a> and <a href="" style="color: #001A14; font-weight: 600;">Privacy Policy</a> of LearnLedger.
                     I understand that the information provided will be used to assess and facilitate potential collaboration.</p>
             </section>
@@ -100,6 +100,7 @@
             </section>
         </form>
     </div>
+    
 </body>
 <script th:src="@{/resources/js/organization.js}"></script>
 </html>
