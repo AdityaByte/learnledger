@@ -111,6 +111,10 @@ public class Organization {
         this.creationDate = creationDate;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Organization{" + "organizationId=" + organizationId + ", organizationName=" + organizationName + ", personName=" + personName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", userType=" + userType + ", websiteURL=" + websiteURL + ", typeofNotes=" + typeofNotes + ", targetAudience=" + targetAudience + ", businessRegistrationFile=" + businessRegistrationFile + ", creationDate=" + creationDate + '}';
+    }
+
     
 }
