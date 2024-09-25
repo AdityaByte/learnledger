@@ -101,6 +101,19 @@
         </form>
     </div>
     
+    <!-- Popup overlay -->
+    <div id="popup" class="popup-overlay">
+        <form class="popup-content" id="otpForm" method="POST">
+            <h2>One Time Password</h2>
+            <input id="otp" type="text" placeholder="Enter OTP" name="otp" required="true"/>
+            <p id="otp-message">Message</p>
+            <div style="display: flex; column-gap: 20px; align-items: center; justify-content: center;">
+                <button id="closePopup">Close</button>
+                <button type="submit">Submit OTP</button>
+            </div>
+        </form>
+    </div>
+    
 </body>
 <script th:src="@{/resources/js/organization.js}"></script>
 </html>

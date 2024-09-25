@@ -328,3 +328,51 @@ select{
     font-weight: 500;
     color: #fff;
 }
+
+/* Style for the popup background */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the popup content */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    width: 40vw;
+    heigh: 50vh;
+}
+
+.popup-content input{
+    width: 400.49px;
+    height: 50px;
+    padding: 0% 2%;
+    font-size: 17.17px;
+    color: #1D1B20;
+    font-weight: 400;
+    border-radius: 6.72px;
+    border: 1.34px solid #001A14;
+    background-color: transparent;
+}
+
+/* Button styles */
+.popup-content div button {
+    width: 30%;
+    height: 40.31px;
+    border-radius: 6.72px;
+    background-color: #136F5F;
+    border: none;
+    font-size: 16.99px;
+    font-weight: 500;
+    color: #fff;
+}

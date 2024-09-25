@@ -10,6 +10,7 @@ if (backButton) {
 const orgForm = document.getElementById('orgForm');
 
 document.addEventListener("DOMContentLoaded" , function(){
+    
     orgForm.addEventListener('submit' , (event) => {
         event.preventDefault();
         let formData = new FormData(orgForm);
@@ -22,12 +23,42 @@ document.addEventListener("DOMContentLoaded" , function(){
             success: function(response){
                 console.log("Full response : " , response);
                 console.log("Reponse Status : ",response.status);
+                
+                if(response.status === "success"){
+                    const popup = document.getElementById("popup");
+                    const closePopup = document.getElementById("closePopup");
+
+                    popup.style.display = "flex";
+                    
+                    const otpForm = document.getElementById('otpForm')
+                    
+                    otpForm.addEventListener('submit' , function(event){
+                        event.preventDefault();
+                        let otp = document.getElementById('otp').value;
+                        if(otp !== ""){
+                            if(otp === "123"){
+                                window.location.href = "http://localhost:9494/learnledger/";
+                            }
+                        }
+                    });
+
+                    closePopup.addEventListener("click", function() {
+                        popup.style.display = "none";
+                    });
+
+                    window.addEventListener("click", function(event) {
+                        if (event.target === popup) {
+                            popup.style.display = "none";
+                        }
+                    });
+                }
             },
             error: function(error){
                 console.log("Error : " , error);
             }  
         });
     });
+    
 });
 
 function displayFileName1(event) {
@@ -43,3 +74,5 @@ function displayFileName2(event) {
     
     document.getElementById("file-name2").textContent = fileName;
 }
+
+
