@@ -36,9 +36,23 @@ document.addEventListener("DOMContentLoaded" , function(){
                         event.preventDefault();
                         let otp = document.getElementById('otp').value;
                         if(otp !== ""){
-                            if(otp === "123"){
-                                window.location.href = "http://localhost:9494/learnledger/";
-                            }
+                            $.ajax({
+                                url: "validateOTP",
+                                type: 'POST',
+                                contentType: 'application/json',
+                                data: JSON.stringify({otp : otp}),
+                                success: function(response){
+                                    if(response.status === "success"){
+                                        alert("otp is valid");
+                                    }
+                                    else if(response.status === "failure"){
+                                        alert("otp is invalid");
+                                    }
+                                },
+                                error: function(error){
+                                    console.log("error -> " , error);
+                                }
+                            });
                         }
                     });
 

@@ -6,18 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "credentials")
 public class Credentials {
     @Id
-    private String id;
     private String organizationId;
     private String email;
     private String hashedPassword;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getOrganizationId() {
         return organizationId;
@@ -42,6 +33,10 @@ public class Credentials {
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Credentials{" + "organizationId=" + organizationId + ", email=" + email + ", hashedPassword=" + hashedPassword + '}';
+    }
     
 }
