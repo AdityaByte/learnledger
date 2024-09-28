@@ -32,6 +32,8 @@ document.getElementById('loginForm').addEventListener('submit' , function(event)
                 typeofUser : typeofUser
             }),
             success: function(response){
+                console.log(response);
+                console.log(response.status);
                 if(response.status === "success"){
                     window.location.href = "/learnledger/home";
                 }
