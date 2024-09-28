@@ -1,5 +1,6 @@
 package com.learnledger.controller;
 
+import com.learnledger.enums.UserType;
 import com.learnledger.model.User;
 import com.learnledger.service.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -39,7 +40,7 @@ public class LoginController {
         
         System.out.println(email + " " + password + " " + typeofUser);
         
-        if("user".equals(typeofUser)){
+        if(UserType.USER == UserType.valueOf(typeofUser)){
             try{
                 User user = service.findByEmailAndPassword(email, password);
                 if(user != null){
