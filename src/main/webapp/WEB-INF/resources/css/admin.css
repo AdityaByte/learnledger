@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    font-family: "Hind", sans-serif;
+    font-style: normal;
+}
+
+.container .nav-div{
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(23, 214, 145, 0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0% 2%;
+    position: fixed;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+}
+
+.container .nav-div .right-content{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1ch;
+}
+
+.container .left-div{
+    height: 100vh;
+    width: 20%;
+    background-color: rgba(23, 214, 145, 0.2);
+    position: absolute;
+    position: fixed;
+}
+
+.nav-div .logo{
+    font-family: "Luckiest Guy", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    width:20%;
+}
+  
+.nav-div .logo span:first-child{
+    font-size: 40px;
+    color: #001A14;
+}
+  
+.nav-div .logo span:last-child{
+    font-size: 30px;
+    color: #06322F;
+}
+
+.nav-div .right-content .buttons{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.nav-div .right-content .buttons button{
+    width: 237px;
+    height: 43px;
+    border-radius: 29.45px;
+    background-color: #fff;
+    border: 1.22px solid #666666;
+    font-size: 16.93px;
+    font-weight: 500;
+    color: #666666;
+}
+
+
+.left-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6% 0% 1% 0%;
+    position: fixed;
+}
+
+.left-div .upper-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.left-div .upper-div button{
+    width: 80%;
+    height: 23%;
+    border-radius: 40px;
+    border: 2px solid #06322F;
+    background-color: #fff;
+    font-size: 20.79px;
+    font-weight: 600;
+    color: #06322F;
+}
+
+.left-div .lower-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.left-div .lower-div button{
+    width: 80%;
+    height: 60%;
+    border-radius: 40px;
+    border: 2px solid #F80000;
+    background-color: #fff;
+    font-size: 20.79px;
+    font-weight: 600;
+    color: #F80000;
+}
+
+.content{
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    margin: 10vh 0 0 20%;
+    padding: 10px;
+}
+
+.content .div1{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.content .div1 div{
+    height: 234px;
+    width: 314px;
+    background-color: rgba(148, 215, 211, 0.2);
+    border-radius: 4px;
+    border-bottom: 4px solid #06322F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .div1 div strong:nth-child(1){
+    font-size: 30.77px;
+    font-weight: 600;
+    color: #001A14;
+}
+
+.content .div1 div strong:nth-child(2){
+    font-size: 107.71px;
+    font-weight: 600;
+    color: #000;
+}
+
+.content .div1 .div-3{
+    align-self: start;
+    justify-self: start;
+}
+
+.content .div1 div:last-child{
+    height: 364px;
+    width: 501px;
+    background-color: rgba(148, 215, 211, 0.4);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+.content .div1 div:last-child section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .div1 div:last-child section strong:first-child{
+    font-size: 30.6px;
+    color: #666666;
+}
+.content .div1 div:last-child section strong:last-child{
+    font-size: 82.37px;
+    color: #666666;
+}
+
+.content1{
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    margin: 10vh 0 0 20%;
+    padding: 10px;
+}
+
+.content1 .div1{
+    height: max-content;
+    border-radius: 4px;
+    background-color: rgba(148, 215, 211, 0.2);
+}
+
+.content1 .div1 section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content1 .div1 section .top{
+    width: 100%;
+    height: 10%;
+    padding: 0.5% 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(62, 213, 177, 0.6);
+}
+
+
+.content1 .div1 section .bottom{
+    transition: ease;
+    height: max-content;
+    background-color: transparent;
+    display: flex;
+    border-radius: 2px;
+    border: 1.2px dotted #fff;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.content1 .div1 section .bottom .content-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content1 .div1 section .bottom .buttons{
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+.content1 .div1 section .top hr{
+    width: 1px;
+    height: 30px;
+    background-color: #000;
+}
+
+.content3{
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    margin: 10vh 0 0 20%;
+    padding: 10px;
+}
+
+.content3 .div1{
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    background-color: rgba(148, 215, 211, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.content3 .div1 h2{
+    align-self: flex-start;
+    font-size: 33.53px;
+    margin-left: 20px;
+    color: #06322F;
+}
+
+.content3 .div1 form{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.content3 .div1 form .grid-form {
+    height: 80%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.content3 .div1 form .grid-form .form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content3 .div1 form .grid-form .form-group label{
+    font-size: 20.17px;
+    font-weight: 500;
+    color: #001A14;
+}
+
+.content3 .div1 form .grid-form .form-group label::after{
+    content: '*';
+    color: red;
+}
+
+.content3 .div1 form .grid-form .form-group input,
+select{
+    width: 400.49px;
+    height: 50px;
+    padding: 0% 2%;
+    font-size: 17.17px;
+    color: #1D1B20;
+    font-weight: 400;
+    border-radius: 6.72px;
+    border: 1.34px solid #001A14;
+    background-color: transparent;
+}
+
+.content3 .div1 form .grid-form .form-group:nth-child(3) {
+    grid-column: 1 / 2;
+    grid-row: 2 / span 4;
+    width: 100%;
+}
+
+.grid-form .form-group:nth-child(3) textarea{
+    width: 411.49px;
+    height: 100%;
+    resize: none;
+    border-radius: 6.72px;
+    border: 1.34px solid #001A14;
+    background-color: #F2F8F7;
+    padding: 2% 2%;
+    font-size: 17.17px;
+    color: #1D1B20;
+    font-weight: 400;
+}
+
+
+.custom-file-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 411.49px;
+    height: 50px;
+    border: 2px dashed #aaa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.file-input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-size: 10px;
+    color: #666;
+}
+
+.file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    text-align: center;
+}
+
+.content3 .div1 form button{
+    width: 35%;
+    height: 49px;
+    background-color: rgba(36, 150, 41, 0.5);
+    border: 2px solid #001A14;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #06322F;
+}
+
+.content3 .div1 form p{
+    color: #666666;
+    font-size: 15px;
+    font-weight: 500;
+}

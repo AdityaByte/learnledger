@@ -1,42 +1,190 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Admin</title>
-        <meta charset="windows-1252">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Admin page</h1>
-        
-        <h2>Add Cards to the index page</h2>
-        <form th:action="@{/admin/saveCard}" th:object="${card}" method="post"> 
-            <input type="text" id="logoText" th:field="*{logoText}" placeholder="Enter Logo text"/><br>
-            <input type="text" id="title" th:field="*{title}" placeholder="Enter title"/><br>
-            <input type="text" id="logoText" th:field="*{subTitle}" placeholder="Enter sub-title"/><br>
-            <input type="text" id="logoText" th:field="*{description}" placeholder="Enter description"/><br>
-            <textarea id="subDescription" th:field="*{subDescription}" ></textarea><br>
-            <button type="submit">Save Card</button>
-        </form>
-        
-        <h2>Add Notes Card</h2>
-        <form th:action="@{/admin/saveNoteCard}" th:object="${noteCard}" method="post">
-            <input type="text" id="heading" th:field="*{noteHeading}" placeholder="Enter the note heading" /><br>
-            <input type="text" id="subHeading" th:field="*{noteSubHeading}" placeholder="Enter the note description"/><br>
-            <button type="submit">Save Note</button>
-        </form>
-        
-        <h2>Add Projects Card</h2>
-        <form th:action="@{/admin/saveProjectCard}" th:object="${projectCard}" method="post">
-            <input type="text" id="heading" th:field="*{projectHeading}" placeholder="Enter the note heading" /><br>
-            <input type="text" id="subHeading" th:field="*{projectSubHeading}" placeholder="Enter the note description"/><br>
-            <button type="submit">Save Project</button>
-        </form>
-        
-        <h2>Add Pdfs Card</h2>
-        <form th:action="@{/admin/savePdfCard}" th:object="${pdfCard}" method="post">
-            <input type="text" id="heading" th:field="*{pdfHeading}" placeholder="Enter the note heading" /><br>
-            <input type="text" id="subHeading" th:field="*{pdfSubHeading}" placeholder="Enter the note description"/><br>
-            <button type="submit">Save pdf</button>
-        </form>
-    </body>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" th:href="@{/resources/css/admin.css}">
+    <style>
+        .content, .content1, .content3 {
+            display: none; 
+        }
+        .active {
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-div">
+            <div class="upper-div">
+                <button onclick="showContent(1)">Dashboard</button>
+                <button onclick="showContent(2)">Users</button>
+                <button onclick="showContent(2)">Organization</button>
+            </div>
+            <div class="lower-div">
+                <button>Log Out</button>
+            </div>
+        </div>
+        <div class="nav-div">
+            <div class="logo">
+                <span>LEARN</span>
+                <span>Ledger</span>
+            </div>
+            <div class="right-content">
+                <div class="buttons">
+                    <button onclick="showContent(3)">Add Documents</button>
+                </div>
+                <div class="icon">
+                    <img src="/svg/icons/User.svg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Dashboard -->
+        <div class="content active" id="content1">
+            <div class="div1">
+                <div class="div-1">
+                    <strong>USERS</strong>
+                    <strong>46</strong>
+                </div>
+                <div class="div-2">
+                    <strong>ADMINS</strong>
+                    <strong>02</strong>
+                </div>
+                <div class="div-3">
+                    <strong>ORGANIZATIONS</strong>
+                    <strong>12</strong>
+                </div>
+                <div class="div-4">
+                    <section>
+                        <strong>NOTES</strong>
+                        <strong>34</strong>
+                    </section>
+                    <section>
+                        <strong>PROJECTS</strong>
+                        <strong>23</strong>
+                    </section>
+                    <section>
+                        <strong>PDFS</strong>
+                        <strong>78</strong>
+                    </section>
+                    <section>
+                        <strong>DOCS</strong>
+                        <strong>12</strong>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content for Users -->
+        <div class="content1" id="content2">
+            <div class="div1">
+                <section>
+                    <div class="top">
+                        <span>User012</span>
+                        <hr>
+                        <span>Aditya Pawar</span>
+                        <hr>
+                        <span>adityapawar4914@gmail.com</span>
+                        <hr>
+                        <button class="button-user-more">More</button>
+                    </div>
+                    <div id="bottom" class="bottom" style="display: none;">
+                        <div class="content-1">
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                        </div>
+                        <div class="buttons">
+                            <button>Change Details</button>
+                            <button>Delete User</button>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="top">
+                        <span>User012</span>
+                        <hr>
+                        <span>Aditya Pawar</span>
+                        <hr>
+                        <span>adityapawar4914@gmail.com</span>
+                        <hr>
+                        <button class="button-user-more">More</button>
+                    </div>
+                    <div id="bottom" class="bottom" style="display: none;">
+                        <div class="content-1">
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                            <span>User id - user012</span>
+                        </div>
+                        <div class="buttons">
+                            <button>Change Details</button>
+                            <button>Delete User</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Content for Organization -->
+        <div class="content3" id="content3">
+            <div class="div1">
+                <h2>Add Document</h2>
+                <form>
+                    <div class="grid-form">
+                        <div class="form-group">
+                            <label>Document Type</label>
+                            <select name="type" id="">
+                                <option value="notes">Notes</option>
+                                <option value="projects">Projects</option>
+                                <option value="pdfs">Pdfs</option>
+                                <option value="docs">Docs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Document Title</label>
+                            <input type="text" placeholder="Title" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Document Description</label>
+                            <textarea placeholder="Description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Document Subtitle</label>
+                            <input type="text" placeholder="Subtitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Picture</label>
+                            <div class="custom-file-upload">
+                                <input type="file" id="doc-img" class="file-input" required onchange="displayFileName(event)">
+                                <label for="doc-img" class="file-label">
+                                    <span id="file-name" class="file-name">Drag or drop your file</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Document</label>
+                            <div class="custom-file-upload">
+                                <input type="file" id="doc" class="file-input" required onchange="displayFileName(event)">
+                                <label for="doc" class="file-label">
+                                    <span id="file-name" class="file-name">Drag or drop your file</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">
+                        Save Notes
+                    </button>
+                    <p>By saving on these details the data will directly save to the database</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script th:src="@{/resources/js/admin.js}"></script>
 </html>
