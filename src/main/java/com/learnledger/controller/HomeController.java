@@ -3,6 +3,7 @@ package com.learnledger.controller;
 import com.learnledger.model.DataDocument;
 import com.learnledger.service.CardService;
 import com.learnledger.service.DataService;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,8 +27,13 @@ public class HomeController {
     private CardService cardService;
     
     @GetMapping
-    public String getHome(Model model){
+    public String getHome(Model model , HttpSession session){
         
+        Boolean isUserLoggedIn = (Boolean) session.getAttribute("isUserLoggedIn");
+        if(isUserLoggedIn == null){
+            isUserLoggedIn = false;
+        }
+        model.addAttribute("isUserLoggedIn", isUserLoggedIn);
         
         if(cardService.checkMongoDBConnection()){
 

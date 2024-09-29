@@ -16,37 +16,35 @@
                 <div class="data-group">
                     <span class="title">Username</span>
                     <div>
-                        <span class="data" th:text="${userData.username}"></span>
+                        <span class="data" th:if="${userData != null}" th:text="${userData.username}"></span>
+                        <span class="data" th:if="${orgData != null}" th:text="${orgData.personName}"></span>
                     </div>
                 </div>
                 <div class="data-group">
                     <span class="title">Email</span>
                     <div>
-                        <span class="data" th:text="${userData.email}"></span>
-                    </div>
-                </div>
-                <div class="data-group">
-                    <span class="title">Password</span>
-                    <div>
-                        <span class="data" th:text="${userData.password}"></span>
+                        <span class="data" th:if="${userData != null}" th:text="${userData.email}"></span>
+                        <span class="data" th:if="${orgData != null}" th:text="${orgData.credentials.email}"></span>
                     </div>
                 </div>
                 <div class="data-group">
                     <span class="title">Type of User</span>
                     <div>
-                        <span class="data">User</span>
+                        <span class="data" th:if="${userData != null}" th:text="${userData.userType.name()}"></span>
+                        <span class="data" th:if="${orgData != null}" th:text="${orgData.userType.name()}"></span>
                     </div>
                 </div>
                 <div class="data-group">
                     <span class="title">Language</span>
                     <div>
-                        <span class="data" >English</span>
+                        <span class="data">English</span>
                     </div>
                 </div>
                 <div class="data-group">
                     <span class="title">Registration Date</span>
                     <div>
-                        <span class="data" th:text="${userData.registerDate}"></span>
+                        <span class="data" th:if="${userData != null}" th:text="${userData.registerDate}"></span>
+                        <span class="data" th:if="${orgData != null}" th:text="${orgData.creationDate}"></span>
                     </div>
                 </div>    
             </div>

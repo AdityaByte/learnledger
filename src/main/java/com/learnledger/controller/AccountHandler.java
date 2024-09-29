@@ -1,5 +1,6 @@
 package com.learnledger.controller;
 
+import com.learnledger.model.Organization;
 import com.learnledger.model.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,14 @@ public class AccountHandler {
         
         if(Boolean.TRUE.equals(isUserLoggedIn)){
             
-            User user = (User) session.getAttribute("user");
-            if(user!=null){
+            Object currentUser = (Object) session.getAttribute("currentUser");
+            if(currentUser instanceof User){
+                User user = (User) currentUser;
                 model.addAttribute("userData", user);
+            }
+            else if(currentUser instanceof Organization){
+                Organization org = (Organization) currentUser;
+                model.addAttribute("orgData", org);
             }
             return "account";
         }

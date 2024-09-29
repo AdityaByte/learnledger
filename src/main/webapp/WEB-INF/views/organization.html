@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="upper-div">
-            <a class="back-icon" href="#" id="back-icon">
+            <a class="back-icon" href="#" id="backButton">
                 <img th:src="@{/resources/svg/icons/Back.svg}"/>
             </a>
             <div class="heading">
@@ -105,8 +105,8 @@
     <div id="popup" class="popup-overlay">
         <form class="popup-content" id="otpForm" method="POST">
             <h2>One Time Password</h2>
-            <input id="otp" type="text" placeholder="Enter OTP" name="otp" required="true"/>
-            <p id="otp-message">Message</p>
+            <input id="otp" type="text" placeholder="Enter OTP" name="otp" required="true" style="margin-bottom: 4px"/>
+            <p id="otp-message" style="display: none; color: #222222; padding: 1px 3px; border: 0.3px dotted solid #222222; border-radius: 4px;">Message</p>
             <div style="display: flex; column-gap: 20px; align-items: center; justify-content: center;">
                 <button id="closePopup">Close</button>
                 <button type="submit">Submit OTP</button>

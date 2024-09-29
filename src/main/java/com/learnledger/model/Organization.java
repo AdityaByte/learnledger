@@ -23,6 +23,15 @@ public class Organization {
     private File businessRegistrationFile;
     private LocalDate creationDate = LocalDate.now();
 
+    public Credentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
+    }
+    private Credentials credentials;
+
     public String getOrganizationId() {
         return organizationId;
     }

@@ -1,22 +1,10 @@
 package com.learnledger.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "credentials")
 public class Credentials {
-    @Id
-    private String organizationId;
+    
     private String email;
-    private String hashedPassword;
-
-    public String getOrganizationId() {
-        return organizationId;
-    }
-
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
-    }
+    private String password;
 
     public String getEmail() {
         return email;
@@ -26,17 +14,14 @@ public class Credentials {
         this.email = email;
     }
 
-    public String getHashedPassword() {
-        return hashedPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Credentials{" + "organizationId=" + organizationId + ", email=" + email + ", hashedPassword=" + hashedPassword + '}';
-    }
+    
     
 }

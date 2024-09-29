@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded" , function(){
                 if(response.status === "success"){
                     const popup = document.getElementById("popup");
                     const closePopup = document.getElementById("closePopup");
+                    const msg = document.getElementById('otp-message');
 
+                    msg.style.display = "block";
+                    msg.innerHTML = "Proccessing request! Sending otp";
                     popup.style.display = "flex";
                     
                     const otpForm = document.getElementById('otpForm')
@@ -43,10 +46,14 @@ document.addEventListener("DOMContentLoaded" , function(){
                                 data: JSON.stringify({otp : otp}),
                                 success: function(response){
                                     if(response.status === "success"){
-                                        alert("otp is valid");
+                                        msg.style.display = "block";
+                                        msg.innerHTML = "OTP is Valid !!";
+                                        alert("Your email is -> " + response.email + " and password is -> " + response.password);
+                                        window.location.href = "http://localhost:9494/learnledger/";
                                     }
                                     else if(response.status === "failure"){
-                                        alert("otp is invalid");
+                                        msg.style.display = "block";
+                                        msg.innerHTML = "OTP is Invalid !!";
                                     }
                                 },
                                 error: function(error){

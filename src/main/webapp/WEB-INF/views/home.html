@@ -25,14 +25,15 @@
                 <button>Cart <img th:src="@{/resources/svg/icons/Trolley.svg}" alt=""></button>
             </div>
             <div class="btn3">
-                <button>Login <img th:src="@{/resources/svg/icons/User.svg}" alt=""></button>
+                <button th:if="${not (isUserLoggedIn ?: false)}" onclick="logIn()">Login <img th:src="@{/resources/svg/icons/User.svg}" alt=""></button>
+                <button th:if="${isUserLoggedIn ?: false}" onclick="accountDetail()">Accounts <img th:src="@{/resources/svg/icons/User.svg}" alt=""></button>
             </div>
             <div class="btn4">
                 <button><img th:src="@{/resources/svg/icons/More.svg}"></button>
                 <div class="dropdown-content">
-                    <a href="#">Option 1</a>
-                    <a href="#">Option 2</a>
-                    <a href="#">Option 3</a>
+                    <a href="#">More</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
                 </div>
             </div>
         </nav>
@@ -128,4 +129,5 @@
         <footer th:replace="fragments/footer :: footer"></footer>
     </div>
 </body>
+<script th:src="@{/resources/js/home.js}"></script>
 </html>

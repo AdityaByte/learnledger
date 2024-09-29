@@ -1,7 +1,9 @@
 package com.learnledger.controller;
 
 import com.learnledger.enums.UserType;
+import com.learnledger.model.Organization;
 import com.learnledger.model.User;
+import com.learnledger.service.OrganizationService;
 import com.learnledger.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -22,6 +24,9 @@ public class LoginController {
     
     @Autowired
     private UserService service;
+    
+    @Autowired
+    private OrganizationService orgService;
     
     @GetMapping
     public String showLoginView(){
@@ -44,7 +49,7 @@ public class LoginController {
             try{
                 User user = service.findByEmailAndPassword(email, password);
                 if(user != null){
-                    session.setAttribute("user", user);
+                    session.setAttribute("currentUser", user);
                     session.setAttribute("isUserLoggedIn", true);
                     response.put("status", "success");
                 }
@@ -56,9 +61,27 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
+        else if(UserType.ORGANIZATION == UserType.valueOf(typeofUser)){
+            try{
+                Organization organization = orgService.findByCredentials(email, password);
+                if(organization != null){
+                    session.setAttribute("currentUser", organization);
+                    session.setAttribute("isUserLoggedIn", true);
+                    response.put("status", "success");
+                }
+                else{
+                    response.put("status", "failure");
+                }
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
         else{
             response.put("error", "error");
         }
+        
+        
         return ResponseEntity.ok(response);
     }
 }

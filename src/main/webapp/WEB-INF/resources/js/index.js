@@ -32,5 +32,9 @@ function Register(){
 }
 
 function getStarted(){
-    window.location.href = "/login";
+    console.log("working button account");
+    let currentURL = window.location.href;
+    let url = new URL(currentURL);
+    url.pathname = url.pathname + "home";
+    window.location.href = url.href; 
 }

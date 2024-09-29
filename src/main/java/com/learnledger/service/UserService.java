@@ -1,5 +1,6 @@
 package com.learnledger.service;
 
+import com.learnledger.enums.UserType;
 import com.learnledger.model.User;
 import com.learnledger.repository.UserRepository;
 import com.learnledger.security.PasswordEncoder;
@@ -44,5 +45,9 @@ public class UserService{
     
     public boolean checkEmailExists(String email){
         return repository.existsByEmail(email);
+    }
+    
+    public Long countByUserType(UserType userType) {
+        return repository.countByUserType(userType);
     }
 }

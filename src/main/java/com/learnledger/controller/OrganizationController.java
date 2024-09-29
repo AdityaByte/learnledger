@@ -4,43 +4,40 @@ import com.learnledger.enums.TargetAudience;
 import com.learnledger.enums.TypeofNotes;
 import com.learnledger.enums.UserType;
 import com.learnledger.model.Credentials;
+import com.learnledger.model.File;
 import com.learnledger.model.Organization;
-import com.learnledger.utils.CredentailsGenerator;
+import com.learnledger.service.OrganizationService;
+import com.learnledger.utils.Base64Converter;
 import com.learnledger.utils.OTPGenerator;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 import org.springframework.web.multipart.MultipartFile;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("org")
 public class OrganizationController {
+
+    @Autowired
+    private OrganizationService service;
     
-    private List<Organization> organizationList = new ArrayList<>();
-    private CredentailsGenerator credentailsGenerator = new CredentailsGenerator();
     private OTPGenerator otpGenerator = new OTPGenerator();
-    
-    private Organization org = new Organization();
-    private Credentials cred = new Credentials();
+    private Organization org;
     
     @GetMapping("/form")
-    public String showOrgForm(){
+    public String showOrgForm() {
         return "organization";
     }
-    
+
     @PostMapping("/form")
     @ResponseBody
-    public ResponseEntity<Map<String , String>> processForm(
+    public ResponseEntity<Map<String, String>> processForm(
             @RequestParam("orgName") String orgName,
             @RequestParam("personName") String personName,
             @RequestParam("orgEmail") String email,
@@ -52,48 +49,61 @@ public class OrganizationController {
             @RequestPart("workSampleFile") MultipartFile workSampleFile,
             @RequestPart("licenseFile") MultipartFile licenseFile,
             @RequestParam("agreeInput") String agreeInput
-    ) {
-        if("checked".equals(agreeInput)){
-            String orgId = credentailsGenerator.generateIdForOrganization(orgName);
-            org.setOrganizationId(orgId);
-            org.setOrganizationName(orgName);
-            org.setPersonName(personName);
-            org.setPhoneNumber(phoneNo);
-            org.setEmail(email);
-            org.setUserType(UserType.ORGANIZATION);
-            org.setWebsiteURL(websiteURL);
-            org.setTargetAudience(TargetAudience.valueOf(targetAudience));
-            org.setTypeofNotes(TypeofNotes.valueOf(typeofNotes));
-            System.out.println(org);
-            otpGenerator.generateOtp();
-            String otp = otpGenerator.getOtp();
-            System.out.println("Your otp is -> " + otp);
-            
+    ) throws IOException {
+
+        if (!"checked".equals(agreeInput)) {
+            return ResponseEntity.badRequest().body(Map.of("status", "error", "message", "You must agree to the terms."));
         }
-        HashMap<String , String> response = new HashMap<>();
-        System.out.println("working...");
+
+        org = new Organization();
+
+        File license = new File();
+        license.setFileName(licenseFile.getOriginalFilename());
+        license.setFileType(licenseFile.getContentType());
+        license.setBase64file(Base64Converter.convertBinaryToBase64(licenseFile.getBytes()));
+
+        org.setOrganizationName(orgName);
+        org.setPersonName(personName);
+        org.setPhoneNumber(phoneNo);
+        org.setEmail(email);
+        org.setUserType(UserType.ORGANIZATION);
+        org.setWebsiteURL(websiteURL);
+        org.setTargetAudience(TargetAudience.valueOf(targetAudience));
+        org.setTypeofNotes(TypeofNotes.valueOf(typeofNotes));
+        org.setBusinessRegistrationFile(license);
+
+        otpGenerator.generateOtp();
+        String otp = otpGenerator.getOtp();
+        System.out.println(otp);
+        HashMap<String, String> response = new HashMap<>();
         response.put("status", "success");
         return ResponseEntity.ok(response);
     }
-    
+
     @PostMapping("/validateOTP")
     @ResponseBody
-    public ResponseEntity<Map<String , String>> validateOTP(
-            @RequestBody Map<String , String> requestBody
-    ){
+    public ResponseEntity<Map<String, String>> validateOTP(@RequestBody Map<String, String> requestBody , HttpSession session) {
+        HashMap<String, String> response = new HashMap<>();
+
         String otp = requestBody.get("otp");
-        if(otpGenerator.getOtp().equals(otp)){
-            Credentials cred = new Credentials();
-            String email = credentailsGenerator.generateEmailForOrganization(org.getOrganizationId());
-            String password = credentailsGenerator.generatePasswordForOrganization(org.getOrganizationId());
-            cred.setEmail(email);
-            cred.setOrganizationId(org.getOrganizationId());
-            cred.setHashedPassword(password);
-            System.out.println(cred);
-            return ResponseEntity.ok().body(Map.of("status" , "success"));
+
+        if (otp != null && otp.equals(otpGenerator.getOtp())) {
+            Organization org = this.org;
+            if (org != null) {
+                Credentials credentials = service.saveOrganization(org);
+                response.put("email", credentials.getEmail());
+                response.put("password", credentials.getPassword());
+                session.setAttribute("isUserLoggedIn", true);
+                session.setAttribute("currentUser", org);
+                response.put("status", "success");
+            } else {
+                response.put("status", "error");
+                response.put("message", "Organization not found.");
+            }
+        } else {
+            response.put("status", "failure");
+            response.put("message", "Invalid OTP.");
         }
-        else{
-            return ResponseEntity.ok().body(Map.of("status" , "failure"));
-        }
+        return ResponseEntity.ok(response);
     }
 }
