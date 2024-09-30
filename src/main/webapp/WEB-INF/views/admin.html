@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" th:href="@{/resources/css/admin.css}">
     <style>
         .content, .content1, .content3 {
@@ -50,28 +51,28 @@
                 </div>
                 <div class="div-2">
                     <strong>ADMINS</strong>
-                    <strong>02</strong>
+                    <strong>01</strong>
                 </div>
                 <div class="div-3">
                     <strong>ORGANIZATIONS</strong>
-                    <strong>12</strong>
+                    <strong th:text="${organizations}"></strong>
                 </div>
                 <div class="div-4">
                     <section>
                         <strong>NOTES</strong>
-                        <strong>34</strong>
+                        <strong th:text="${notes}"></strong>
                     </section>
                     <section>
                         <strong>PROJECTS</strong>
-                        <strong>23</strong>
+                        <strong th:text="${projects}"></strong>
                     </section>
                     <section>
                         <strong>PDFS</strong>
-                        <strong>78</strong>
+                        <strong th:text="${pdfs}"></strong>
                     </section>
                     <section>
                         <strong>DOCS</strong>
-                        <strong>12</strong>
+                        <strong th:text="${docs}"></strong>
                     </section>
                 </div>
             </div>
@@ -135,33 +136,33 @@
         <div class="content3" id="content3">
             <div class="div1">
                 <h2>Add Document</h2>
-                <form>
+                <form id="documentForm" method="POST" enctype="multipart/file">
                     <div class="grid-form">
                         <div class="form-group">
                             <label>Document Type</label>
-                            <select name="type" id="">
-                                <option value="notes">Notes</option>
-                                <option value="projects">Projects</option>
-                                <option value="pdfs">Pdfs</option>
-                                <option value="docs">Docs</option>
+                            <select name="typeofDocument" id="">
+                                <option value="NOTES">Notes</option>
+                                <option value="PROJECTS">Projects</option>
+                                <option value="PDFS">Pdfs</option>
+                                <option value="DOCS">Docs</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Document Title</label>
-                            <input type="text" placeholder="Title" required>
+                            <input type="text" name="title" placeholder="Title" required>
                         </div>
                         <div class="form-group">
                             <label>Document Description</label>
-                            <textarea placeholder="Description" required></textarea>
+                            <textarea name="description" placeholder="Description" required></textarea>
                         </div>
                         <div class="form-group">
                             <label>Document Subtitle</label>
-                            <input type="text" placeholder="Subtitle" required>
+                            <input name="subTitle" type="text" placeholder="Subtitle" required>
                         </div>
                         <div class="form-group">
                             <label>Select Picture</label>
                             <div class="custom-file-upload">
-                                <input type="file" id="doc-img" class="file-input" required onchange="displayFileName(event)">
+                                <input name="docimg" type="file" id="doc-img" class="file-input" required onchange="displayFileName(event)">
                                 <label for="doc-img" class="file-label">
                                     <span id="file-name" class="file-name">Drag or drop your file</span>
                                 </label>
@@ -170,7 +171,7 @@
                         <div class="form-group">
                             <label>Select Document</label>
                             <div class="custom-file-upload">
-                                <input type="file" id="doc" class="file-input" required onchange="displayFileName(event)">
+                                <input name="docfile" type="file" id="doc" class="file-input" required onchange="displayFileName(event)">
                                 <label for="doc" class="file-label">
                                     <span id="file-name" class="file-name">Drag or drop your file</span>
                                 </label>

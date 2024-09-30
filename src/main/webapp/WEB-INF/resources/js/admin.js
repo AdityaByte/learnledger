@@ -21,3 +21,30 @@ buttons.forEach((button) => {
 });
 
 showContent(1);
+
+const documentForm = document.getElementById("documentForm");
+
+document.addEventListener('submit' , function(event){
+    event.preventDefault();
+    const formData = new FormData(documentForm);
+    $.ajax({
+        url: "document",
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response){
+            if(response.status == "success"){
+                alert("Data saved successfully");
+            }
+            else{
+                alert("Some error occured while saving data");
+            }
+        },
+        error: function(error , xhr , status){
+            console.log("error = " , error);
+            console.log("xhr = " , xhr);
+            console.log("status = " , status);
+        }
+    });
+});

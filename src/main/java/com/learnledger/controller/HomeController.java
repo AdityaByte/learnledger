@@ -1,5 +1,6 @@
 package com.learnledger.controller;
 
+import com.learnledger.enums.DocumentType;
 import com.learnledger.model.DataDocument;
 import com.learnledger.service.CardService;
 import com.learnledger.service.DataService;
@@ -38,19 +39,19 @@ public class HomeController {
         if(cardService.checkMongoDBConnection()){
 
             try{
-                Map<String , List<DataDocument>>  documents = 
-                        Stream.of("notes" , "projects" , "pdfs")
-                        .collect(Collectors.toMap(
-                                field -> field,
-                                field -> service.findByFieldName(field)
-                                    .stream()
-                                    .limit(4)
-                                    .collect(Collectors.toList())
-                        ));
+                Map<String, List<DataDocument>> documents = 
+                    Stream.of(DocumentType.NOTES, DocumentType.PROJECTS, DocumentType.PDFS)
+                    .collect(Collectors.toMap(
+                            field -> field.name(),
+                            field -> service.findByFieldName(field)
+                                .stream()
+                                .limit(4)
+                                .collect(Collectors.toList())
+                    ));
 
-                List<DataDocument> notes = documents.get("notes");
-                List<DataDocument> projects = documents.get("projects");
-                List<DataDocument> pdfs = documents.get("pdfs");
+                List<DataDocument> notes = documents.get(DocumentType.NOTES.name());
+                List<DataDocument> projects = documents.get(DocumentType.PROJECTS.name());
+                List<DataDocument> pdfs = documents.get(DocumentType.PDFS.name());
 
                 model.addAttribute("notes" , notes);
                 model.addAttribute("projects" , projects);

@@ -1,5 +1,6 @@
 package com.learnledger.model;
 
+import com.learnledger.enums.DocumentType;
 import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +12,7 @@ public class DataDocument {
     private String title;
     private String subTitle;
     private String description;
-    private String typeofDocument;
+    private DocumentType typeofDocument;
     private List<File> files;     
 
     // Getters and Setters
@@ -48,11 +49,11 @@ public class DataDocument {
         this.description = description;
     }
 
-    public String getTypeofDocument() {
+    public DocumentType getTypeofDocument() {
         return typeofDocument;
     }
 
-    public void setTypeofDocument(String typeofDocument) {
+    public void setTypeofDocument(DocumentType typeofDocument) {
         this.typeofDocument = typeofDocument;
     }
 
@@ -62,6 +63,11 @@ public class DataDocument {
 
     public void setFiles(List<File> files) {
         this.files = files;
+    }
+
+    @Override
+    public String toString() {
+        return "DataDocument{" + "id=" + id + ", title=" + title + ", subTitle=" + subTitle + ", description=" + description + ", typeofDocument=" + typeofDocument + ", files=" + files + '}';
     }
 
     

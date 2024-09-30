@@ -1,5 +1,6 @@
 package com.learnledger.service;
 
+import com.learnledger.enums.DocumentType;
 import com.learnledger.model.DataDocument;
 import com.learnledger.model.File;
 import com.learnledger.repository.DataRepository;
@@ -43,7 +44,12 @@ public class DataService {
         return repository.findAll();
     }
     
-    public List<DataDocument> findByFieldName(String typeofDocument) {
-        return repository.findByTypeofDocument(typeofDocument);
+    public List<DataDocument> findByFieldName(DocumentType documentType) {
+        return repository.findByTypeofDocument(documentType);
     }
+    
+    public Long countByTypeofDocument(DocumentType documentType){
+        return repository.countByTypeofDocument(documentType);
+    }
+    
 }
