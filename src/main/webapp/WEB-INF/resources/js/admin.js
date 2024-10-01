@@ -1,5 +1,5 @@
 function showContent(contentNumber) {
-    document.querySelectorAll('.content, .content1, .content3').forEach(content => {
+    document.querySelectorAll('.content, .content1, .content2 , .content3').forEach(content => {
         content.style.display = 'none';
     });
     document.getElementById(`content${contentNumber}`).style.display = 'block';

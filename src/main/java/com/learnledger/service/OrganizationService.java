@@ -2,15 +2,12 @@ package com.learnledger.service;
 
 import com.learnledger.enums.UserType;
 import com.learnledger.model.Credentials;
-import com.learnledger.model.File;
 import com.learnledger.model.Organization;
 import com.learnledger.repository.OrganizationRepository;
-import com.learnledger.utils.Base64Converter;
 import com.learnledger.utils.CredentialsGenerator;
-import java.io.IOException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class OrganizationService {
@@ -40,4 +37,9 @@ public class OrganizationService {
     public Long countByUserType(UserType userType){
         return repository.countByUserType(userType);
     }
+    
+    public List<Organization> findAllOrganizationByUserType(UserType userType){
+        return repository.findOrganizationByUserType(userType);
+    }
+    
 }

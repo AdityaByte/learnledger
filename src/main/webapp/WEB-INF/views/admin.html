@@ -21,7 +21,7 @@
             <div class="upper-div">
                 <button onclick="showContent(1)">Dashboard</button>
                 <button onclick="showContent(2)">Users</button>
-                <button onclick="showContent(2)">Organization</button>
+                <button onclick="showContent(3)">Organization</button>
             </div>
             <div class="lower-div">
                 <button>Log Out</button>
@@ -34,7 +34,7 @@
             </div>
             <div class="right-content">
                 <div class="buttons">
-                    <button onclick="showContent(3)">Add Documents</button>
+                    <button onclick="showContent(4)">Add Documents</button>
                 </div>
                 <div class="icon">
                     <img src="/svg/icons/User.svg" alt="">
@@ -47,15 +47,15 @@
             <div class="div1">
                 <div class="div-1">
                     <strong>USERS</strong>
-                    <strong th:text="${users}"></strong>
+                    <strong th:text="${usersNo}"></strong>
                 </div>
                 <div class="div-2">
                     <strong>ADMINS</strong>
-                    <strong>01</strong>
+                    <strong>1</strong>
                 </div>
                 <div class="div-3">
                     <strong>ORGANIZATIONS</strong>
-                    <strong th:text="${organizations}"></strong>
+                    <strong th:text="${organizationsNo}"></strong>
                 </div>
                 <div class="div-4">
                     <section>
@@ -80,60 +80,68 @@
 
         <!-- Content for Users -->
         <div class="content1" id="content2">
-            <div class="div1">
-                <section>
+            <div class="div1" th:if="${users != null and !#lists.isEmpty(users)}">
+                <section th:each="user : ${users}">
                     <div class="top">
-                        <span>User012</span>
+                        <span th:text="${user.id}"></span>
                         <hr>
-                        <span>Aditya Pawar</span>
+                        <span th:text="${user.username}"></span>
                         <hr>
-                        <span>adityapawar4914@gmail.com</span>
+                        <span th:text="${user.email}"></span>
                         <hr>
-                        <button class="button-user-more">More</button>
+                        <button class="button-user-more" style="padding: 0.6px 6px; background: white; border: 0.4px solid #001A14; border-radius: 5px">More</button>
                     </div>
                     <div id="bottom" class="bottom" style="display: none;">
                         <div class="content-1">
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
+                            <p th:text="|User id -  ${user.id}|"></p>
+                            <p th:text="|Username -  ${user.username}|"></p>
+                            <p th:text="|Email -  ${user.email}|"></p>
+                            <p th:text="|UserType -  ${user.userType.name()}|"></p>
+                            <p th:text="|Creation Date -  ${user.registerDate}|"></p>
                         </div>
                         <div class="buttons">
-                            <button>Change Details</button>
-                            <button>Delete User</button>
+                            <button style="padding: 0.6px 6px; background: white; border: 0.4px solid #001A14; border-radius: 5px">Change Details</button>
+                            <button style="padding: 0.6px 6px; background: white; border: 0.4px solid #001A14; border-radius: 5px">Delete User</button>
                         </div>
                     </div>
                 </section>
-                <section>
+            </div>
+        </div>
+        
+        
+        <!-- Content for Organization -->
+        <div class="content1 content2" id="content3">
+            <div class="div1" th:if="${orgs != null and !#lists.isEmpty(orgs)}">
+                <section th:each="org : ${orgs}">
                     <div class="top">
-                        <span>User012</span>
+                        <span th:text="${org.organizationId}"></span>
                         <hr>
-                        <span>Aditya Pawar</span>
+                        <span th:text="${org.organizationName}"></span>
                         <hr>
-                        <span>adityapawar4914@gmail.com</span>
+                        <span th:text="${org.phoneNumber}"></span>
                         <hr>
-                        <button class="button-user-more">More</button>
+                        <button class="button-user-more" style="padding: 0.6px 6px; background: white; border: 0.4px solid #001A14; border-radius: 5px">More</button>
                     </div>
                     <div id="bottom" class="bottom" style="display: none;">
                         <div class="content-1">
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
-                            <span>User id - user012</span>
+                            <p th:text="|Organization id -  ${org.organizationId}|"></p>
+                            <p th:text="|Organization Name -  ${org.organizationName}|"></p>
+                            <p th:text="|Organization Email -  ${org.email}|"></p>
+                            <p th:text="|Organization Number -  ${org.phoneNumber}|"></p>
+                            <p th:text="|User Type -  ${org.userType.name()}|"></p>
+                            <p th:text="|Creation Date -  ${org.creationDate}|"></p>
                         </div>
                         <div class="buttons">
-                            <button>Change Details</button>
-                            <button>Delete User</button>
+                            <button style="padding: 0.6px 6px; background: white; border: 0.4px solid #001A14; border-radius: 5px">Change Details</button>
+                            <button style="padding: 0.6px 6px; background: white; border: 0.4px solid #001A14; border-radius: 5px">Delete User</button>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
 
-        <!-- Content for Organization -->
-        <div class="content3" id="content3">
+        <!-- Add any document section -->
+        <div class="content3" id="content4">
             <div class="div1">
                 <h2>Add Document</h2>
                 <form id="documentForm" method="POST" enctype="multipart/file">

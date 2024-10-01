@@ -2,6 +2,7 @@ package com.learnledger.repository;
 
 import com.learnledger.enums.UserType;
 import com.learnledger.model.Organization;
+import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -13,4 +14,8 @@ public interface OrganizationRepository extends MongoRepository<Organization, St
     Long countByUserType(UserType userType);
     
     Boolean existsByPhoneNumber(String phoneNumber);
+    
+    @Query("{ 'userType': ?0 }")
+    List<Organization> findOrganizationByUserType(UserType userType);
+    
 }

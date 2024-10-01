@@ -17,6 +17,13 @@ public class CredentialsGenerator {
         return sb.toString();
     }
     
+    public String generateIdForUser(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("User");
+        sb.append(id);
+        return sb.toString();
+    }
+    
     public String generateEmailForOrganization(String orgName){
         String newString = orgName.replaceAll("[^a-zA-Z]", "");
         newString.toLowerCase();

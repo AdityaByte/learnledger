@@ -5,7 +5,9 @@ import com.learnledger.model.User;
 import com.learnledger.repository.UserRepository;
 import com.learnledger.security.PasswordEncoder;
 import com.learnledger.security.SaltGenerator;
+import com.learnledger.utils.CredentialsGenerator;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,10 @@ public class UserService{
     
     private final PasswordEncoder passwordEncoder = new PasswordEncoder();
     private final SaltGenerator saltGenerator = new SaltGenerator();
+    private final CredentialsGenerator cg = new CredentialsGenerator();
     
     public User saveUser(User user) throws NoSuchAlgorithmException{
+        user.setId(cg.generateIdForUser());
         String rawPassword = user.getPassword();
         if(rawPassword != null){
             saltGenerator.generateSalt();
@@ -49,5 +53,9 @@ public class UserService{
     
     public Long countByUserType(UserType userType) {
         return repository.countByUserType(userType);
+    }
+    
+    public List<User> findAllUserByUserType(UserType userType){
+        return (List<User>) repository.findAllUserByUserType(userType);
     }
 }

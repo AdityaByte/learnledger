@@ -3,11 +3,14 @@ package com.learnledger.controller;
 import com.learnledger.enums.DocumentType;
 import com.learnledger.enums.UserType;
 import com.learnledger.model.DataDocument;
+import com.learnledger.model.Organization;
+import com.learnledger.model.User;
 import com.learnledger.service.DataService;
 import com.learnledger.service.OrganizationService;
 import com.learnledger.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,23 +40,28 @@ public class AdminController{
     @GetMapping("/{admin}")
     public Object showAdminPage(@PathVariable("admin") String admin , HttpServletResponse response){
         if(admin.equals("aditya")){
-            Long users = service.countByUserType(UserType.USER);
-            Long organizations = orgService.countByUserType(UserType.ORGANIZATION);
+            Long usersNo = service.countByUserType(UserType.USER);
+            Long organizationsNo = orgService.countByUserType(UserType.ORGANIZATION);
             Long notes = dataService.countByTypeofDocument(DocumentType.NOTES);
             Long projects = dataService.countByTypeofDocument(DocumentType.PROJECTS);
             Long pdfs = dataService.countByTypeofDocument(DocumentType.PDFS);
             Long docs = dataService.countByTypeofDocument(DocumentType.DOCS);
+            
+            List<User> users = (List<User>) service.findAllUserByUserType(UserType.USER);
+            List<Organization> orgs = (List<Organization>) orgService.findAllOrganizationByUserType(UserType.ORGANIZATION);
 
-            System.out.println("organization no - " + organizations);
             ModelAndView modelAndView = new ModelAndView();
-            modelAndView.addObject("users" , users);
-            modelAndView.addObject("organizations", organizations);
+            modelAndView.addObject("usersNo" , usersNo);
+            modelAndView.addObject("organizationsNo", organizationsNo);
             modelAndView.addObject("notes" , notes);
             modelAndView.addObject("projects" , projects);
             modelAndView.addObject("pdfs" , pdfs);
             modelAndView.addObject("docs" , docs);
-
+            modelAndView.addObject("users" , users);
+            modelAndView.addObject("orgs" , orgs);            
+            
             modelAndView.setViewName("admin");
+            
             return modelAndView;
         }
         else{

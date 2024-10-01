@@ -258,8 +258,8 @@
 .content1 .div1 section .bottom .content-1{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
 
 .content1 .div1 section .bottom .buttons{
