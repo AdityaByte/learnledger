@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/resources/css/content.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/navbar2.css}">
+</head>
+<body>
+    <nav th:replace="fragments/navbar2 :: navbar2"></nav>
+    
+    <div class="container" th:if="${data != null and !#lists.isEmpty(data)}">
+        <div class="doc-card" th:each="d : ${data}">
+            <div class="left-div">
+                <div class="img" th:if="${d.files[0] != null and d.files[0].base64file != null}"
+                    th:style="'background-image: url(data:' + ${d.files[0].fileType} + ';base64,' + ${d.files[0].base64file} + ');'"
+                    alt="Card image"
+                    th:alt="'Background image for ' + ${d.title}"></div>
+            </div>
+            <div class="right-div">
+                <h2 th:text="${d.title}"></h2>
+                <h3 th:text="${d.subTitle}">Learn spring framework</h3>
+                <p th:text="${d.description}"></p>
+                <div class="btns">
+                    <button>Add to cart</button>
+                    <button>Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="nullContainer"  th:if="${data == null or #lists.isEmpty(data)}">
+        <h1>No data found</h1>
+    </div>
+    
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+<script th:src="@{/resources/js/content.js}"></script>
+</html>

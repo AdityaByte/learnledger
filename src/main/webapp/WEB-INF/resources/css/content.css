@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Hind", sans-serif;
+    font-style: normal;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 11vh;
+}
+
+.doc-card{
+    width: 95%;
+    height: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1% 1%;
+    background-color: rgba(148, 215, 211, 0.2);
+    border-radius: 27px;
+}
+
+.doc-card .left-div{
+    width: 25%;
+    margin: 0% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doc-card .left-div .img{
+    background-color: white;
+    background-image: url('/images/java-logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 22vw;
+    height: 22vw;
+    border-radius: 100%;
+}
+
+.doc-card .right-div{
+    width: 50%;
+    justify-content: center;
+}
+
+.right-div h2{
+    font-size: 49.17px;
+    font-weight: bold;
+    color: #001A14;
+}
+
+.right-div h3{
+    font-size: 32.43px;
+    color: #06322F;
+    font-weight: bold;
+}
+
+.right-div p{
+    font-size: 20.4px;
+}
+
+.right-div .btns{
+    float: right;
+    margin-top: 3%;
+}
+
+.btns button{
+    width: 13vw;
+    height: 5vh;
+    border-radius: 10px;
+    border: 2px solid #06322F;
+    background-color: white;
+    color: #06322F;
+    font-size: small;
+    font-weight: bold;
+}
+
+.nullContainer{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 11vh;
+}
+
+@keyframes animateText {
+    0% {
+        transform: translateX(0) translateY(0) scale(1);
+        color: #042b26;
+        font-size: 120px;
+    }
+    25% {
+        transform: translateX(20px) translateY(-20px) scale(1.2);
+        color: #ff6347; 
+    }
+    50% {
+        transform: translateX(50px) translateY(0) scale(1.4);
+        color: #1e90ff; 
+        font-size: 130px;
+    }
+    75% {
+        transform: translateX(-20px) translateY(20px) scale(1.2);
+        color: #32cd32;
+    }
+    100% {
+        transform: translateX(0) translateY(0) scale(1);
+        color: #042b26;
+        font-size: 120px;
+    }
+}
+
+.nullContainer h1 {
+    font-size: 120px;
+    font-weight: bold;
+    color: #042b26;
+    font-family: "Luckiest Guy", cursive;
+    animation: animateText 5s ease-in-out infinite;
+    display: inline-block;
+}
