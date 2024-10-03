@@ -41,6 +41,9 @@ document.getElementById('loginForm').addEventListener('submit' , function(event)
                     messageDiv.style.display = "block";
                     messageDiv.innerHTML = "Password is incorrect !!";    
                 }
+                else if(response.status === "success-admin"){
+                    window.location.href = window.location.origin + "/learnledger/admin";
+                }
                 else{
                     messageDiv.style.display = "block";
                     messageDiv.innerHTML = "Sorry!! We can't proceed further";

@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded" , function(){
                                         msg.style.display = "block";
                                         msg.innerHTML = "OTP is Valid !!";
                                         alert("Your email is -> " + response.email + " and password is -> " + response.password);
-                                        window.location.href = "http://localhost:9494/learnledger/";
+                                        window.location.href = window.location.origin + "/learnledger/";
+
                                     }
                                     else if(response.status === "failure"){
                                         msg.style.display = "block";

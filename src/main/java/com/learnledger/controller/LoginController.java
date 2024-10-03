@@ -77,7 +77,14 @@ public class LoginController {
                 e.printStackTrace();
             }
         }
+        else if(UserType.ADMIN == UserType.valueOf(typeofUser) && email.equals("admin@gmail.com") && password.equals("aditya")){
+            System.out.println("i am in the admin block");
+            session.setAttribute("isAdmin", true);
+            response.put("status", "success-admin");
+        }
+        
         else{
+            System.out.println("i am in the else block");
             response.put("error", "error");
         }
         

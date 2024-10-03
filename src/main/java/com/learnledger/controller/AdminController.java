@@ -9,6 +9,7 @@ import com.learnledger.service.DataService;
 import com.learnledger.service.OrganizationService;
 import com.learnledger.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -37,9 +38,15 @@ public class AdminController{
     private DataService dataService;
     
     
-    @GetMapping("/{admin}")
-    public Object showAdminPage(@PathVariable("admin") String admin , HttpServletResponse response){
-        if(admin.equals("aditya")){
+    @GetMapping
+    public Object showAdminPage(HttpServletResponse response , HttpSession session){
+        
+        Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+        if(isAdmin == null){
+            isAdmin = null;
+        }
+        
+        if(isAdmin){
             Long usersNo = service.countByUserType(UserType.USER);
             Long organizationsNo = orgService.countByUserType(UserType.ORGANIZATION);
             Long notes = dataService.countByTypeofDocument(DocumentType.NOTES);

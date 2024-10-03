@@ -1,12 +1,12 @@
 function logIn(){
-    window.location.href = "http://localhost:9494/learnledger/login";
+    window.location.href = window.location.origin + "/learnledger/login";
 }
 
 
 function accountDetail(){
-    window.location.href = "http://localhost:9494/learnledger/account";
+    window.location.href = window.location.origin + "/learnledger/account";
 }
 
 function content(contentNo){
-    window.location.href = "http://localhost:9494/learnledger/home/content/" + contentNo;
+    window.location.href = window.location.origin + "/learnledger/home/content/" + contentNo;
 }

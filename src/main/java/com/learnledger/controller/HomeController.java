@@ -51,6 +51,14 @@ public class HomeController {
                             field -> service.findByFieldName(field)
                                 .stream()
                                 .limit(4)
+                                .map(document -> {
+                                    String description = document.getDescription();
+                                    if(description.length() > 160){
+                                        description = description.substring(0, 160) + "...";
+                                    }
+                                    document.setDescription(description);
+                                    return document;
+                                })
                                 .collect(Collectors.toList())
                     ));
 
