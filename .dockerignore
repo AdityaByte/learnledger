@@ -1,0 +1,13 @@
+target/
+.git/
+node_modules/
+*.log
+*.iml
+.vscode/
+.gradle/
+build/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+*.nb-gradle
