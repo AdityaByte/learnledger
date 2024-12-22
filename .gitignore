@@ -32,12 +32,21 @@ replay_pid*
 .idea/
 *.iml
 
+# vscode files
+.vscode/
+
 # Gradle build files
 .gradle/
 build/
 
 # Maven build files
-target/
+target/classes
+target/generated-sources
+target/generated-test-sources
+target/learnledger
+target/maven-archiver
+target/maven-status
+target/test-classes
 
 # NetBeans project files
 nbproject/private/
