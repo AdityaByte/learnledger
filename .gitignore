@@ -64,3 +64,4 @@ Thumbs.db
 *.swp
 *.swo
 
+!learnledger.war
