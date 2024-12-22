@@ -40,13 +40,8 @@ replay_pid*
 build/
 
 # Maven build files
-target/classes
-target/generated-sources
-target/generated-test-sources
-target/learnledger
-target/maven-archiver
-target/maven-status
-target/test-classes
+target/*
+!target/learnledger.war
 
 # NetBeans project files
 nbproject/private/
